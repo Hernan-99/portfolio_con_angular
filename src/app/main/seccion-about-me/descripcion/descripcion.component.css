@@ -1,0 +1,15 @@
+/* estilos para el aboutme */
+.contenedorTexto {
+  color: #fff;
+  font-weight: 600;
+  font-size: 1em;
+  line-height: 1.875rem;
+  text-align: center;
+  width: 80%;
+  margin: 2.5rem auto 0 auto;
+}
+
+.contenedorTexto .resaltar {
+  color: var(--color-principal);
+  text-decoration: underline;
+}

@@ -1,0 +1,80 @@
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+body {
+  color: #fff;
+  background-color: #272838;
+}
+/* HEADER */
+header {
+  margin-bottom: 1rem;
+}
+.container-fluid .logo {
+  width: 8rem;
+}
+/* color del navbar */
+.contenido-navbar {
+  background-color: #011627;
+  /* 011627 */
+  /* 272838 */
+  /* 1b2a41 */
+}
+
+.menu .icon {
+  font-size: 1.8rem;
+}
+
+.ig,
+.gh,
+.in,
+.tw,
+.ur {
+  color: #f3f3f3;
+  transition: all 300ms;
+}
+.ig:hover {
+  color: #d6249f;
+  transition: all 300ms;
+}
+.gh:hover {
+  color: #464444;
+  transition: all 300ms;
+}
+.in:hover {
+  color: #0e76a8;
+  transition: all 300ms;
+}
+.tw:hover {
+  color: #00acee;
+  transition: all 300ms;
+}
+.ur:hover {
+  color: #6ddd71;
+  transition: all 300ms;
+}
+.login-btn,
+.login-btn:hover,
+.login-btn:active,
+.login-btn:link {
+  border: none;
+  border-radius: none;
+  background: none;
+  outline: none;
+}
+.iconur {
+  font-size: 1.7rem;
+}
+.modal-header h5,
+.modal-header i {
+  font-size: 2rem;
+}
+.btn-ingresar:hover {
+  background-color: #6ddd71;
+}

@@ -1,0 +1,49 @@
+/* estilos para titulo y x ventana modal login */
+.modal-header h5,
+    /*equis para cerrar*/
+    .modal-header .cerrar {
+  font-size: 2rem;
+}
+
+/* estolos para el formulario */
+.formulario label {
+  color: #fff;
+}
+.formulario input::placeholder {
+  color: rgba(255, 255, 255, 0.904);
+}
+.form-control {
+  outline: none;
+  border: 0.12rem solid var(--color-secundario);
+  background-color: transparent;
+}
+
+.form-control:focus {
+  color: #212529;
+  background-color: rgba(179, 179, 179, 0.164);
+  border-color: var(--color-secundario);
+  outline: 0;
+  box-shadow: 0px 0px 12px -1px var(--color-secundario);
+}
+
+/* estilos para el btn ingresar del modal */
+.btn-ingresar {
+  color: #fff;
+  font-weight: 400;
+  background: grey;
+}
+.btn-ingresar:hover {
+  color: #fff;
+  background-color: var(--color-secundario);
+  box-shadow: 0px 0px 12px -1px var(--color-secundario);
+}
+/* estilos para el btn login */
+/* .login-btn,
+.login-btn:hover,
+.login-btn:active,
+.login-btn:link {
+  border: none;
+  border-radius: none;
+  background: none;
+  outline: none;
+} */

@@ -1,0 +1,9 @@
+.contenedorFoto {
+  margin-top: -60px;
+}
+.contenedorFoto img {
+  width: 7.1875rem;
+  vertical-align: top;
+  border-radius: 50%;
+  border: 5px solid rgba(0, 0, 0, 0.671);
+}

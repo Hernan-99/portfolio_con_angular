@@ -1,0 +1,567 @@
+<!-- AGREGAR BOTONES DE CANCELAR -->
+
+<main class="container-fluid">
+  <section class="row dashboard">
+    <!-- ASIDE - BARRA DE ADMINISTRACION -->
+    <article class="col-md-3 col-sm-6">
+      <div class="d-flex justify-content-center">
+        <div
+          class="nav flex-column nav-pills me-3"
+          id="v-pills-tab"
+          role="tablist"
+          aria-orientation="vertical"
+        >
+          <!-- BTN-DATOS PERSONALES -->
+          <button
+            class="nav-link active"
+            id="v-pills-datos-personales-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#v-pills-datos-personales"
+            type="button"
+            role="tab"
+            aria-controls="v-pills-datos-personales"
+            aria-selected="true"
+          >
+            Datos Personales
+          </button>
+
+          <!-- BTN-ABOUT ME -->
+          <button
+            class="nav-link"
+            id="v-pills-about-me-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#v-pills-about-me"
+            type="button"
+            role="tab"
+            aria-controls="v-pills-about-me"
+            aria-selected="false"
+          >
+            About Me
+          </button>
+
+          <!-- BTN-EXPERIENCIA LABORAL -->
+          <button
+            class="nav-link"
+            id="v-pills-experiencia-laboral-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#v-pills-experiencia-laboral"
+            type="button"
+            role="tab"
+            aria-controls="v-pills-experiencia-laboral"
+            aria-selected="false"
+          >
+            Experiencia laboral
+          </button>
+
+          <!-- BTN-EDUCACION FORMAL-->
+          <button
+            class="nav-link"
+            id="v-pills-educacion-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#v-pills-educacion"
+            type="button"
+            role="tab"
+            aria-controls="v-pills-educacion"
+            aria-selected="false"
+          >
+            Educacion Formal
+          </button>
+
+          <!-- BTN-EDUCACION COMPLEMENTARIA-->
+          <button
+            class="nav-link"
+            id="v-pills-educacion-complementaria-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#v-pills-educacion-complementaria"
+            type="button"
+            role="tab"
+            aria-controls="v-pills-educacion-complementaria"
+            aria-selected="false"
+          >
+            Educacion Complementaria
+          </button>
+
+          <!-- BTN-HARD SKILLS -->
+          <button
+            class="nav-link"
+            id="v-pills-hard-skills-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#v-pills-hard-skills"
+            type="button"
+            role="tab"
+            aria-controls="v-pills-hard-skills"
+            aria-selected="false"
+          >
+            Hard Skills
+          </button>
+
+          <!-- BTN-SOFT SKILLS -->
+          <button
+            class="nav-link"
+            id="v-pills-soft-skills-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#v-pills-soft-skills"
+            type="button"
+            role="tab"
+            aria-controls="v-pills-soft-skills"
+            aria-selected="false"
+          >
+            Soft Skills
+          </button>
+
+          <!-- BTN-PROYECTOS -->
+          <button
+            class="nav-link"
+            id="v-pills-proyectos-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#v-pills-proyectos"
+            type="button"
+            role="tab"
+            aria-controls="v-pills-proyectos"
+            aria-selected="false"
+          >
+            Proyectos
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- MODIFICACION DE DATOS -->
+    <article class="col-md-9 col-sm-6">
+      <!------------------------>
+      <!-------CONTENEDOR------->
+      <!------------------------>
+      <div class="tab-content" id="v-pills-tabContent">
+        <!---------------------->
+        <!---DATOS PERSONALES--->
+        <!---------------------->
+        <div
+          class="tab-pane fade show active"
+          id="v-pills-datos-personales"
+          role="tabpanel"
+          aria-labelledby="v-pills-datos-personales-tab"
+          tabindex="0"
+        >
+          <h3>Datos personales</h3>
+
+          <!-- seleccion de imagen -->
+          <div class="mb-3">
+            <label for="formFileMultiple" class="form-label">
+              Foto de perfil
+            </label>
+            <input
+              class="form-control mb-2"
+              type="file"
+              id="formFileMultiple"
+              multiple
+            />
+            <button type="button" class="btn btn-primary">Guardar</button>
+          </div>
+
+          <!-- cambio de nombre -->
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre y apellido</label>
+            <input class="form-control mb-2" type="text" id="nombre" />
+            <button type="button" class="btn btn-primary">Guardar</button>
+          </div>
+        </div>
+
+        <!---------------------->
+        <!-------ABOUT ME------->
+        <!---------------------->
+        <div
+          class="tab-pane fade"
+          id="v-pills-about-me"
+          role="tabpanel"
+          aria-labelledby="v-pills-about-me-tab"
+          tabindex="0"
+        >
+          <!-- cambio de about me -->
+          <h3>About me</h3>
+          <div class="mb-3">
+            <textarea
+              class="form-control textarea mb-2"
+              id="exampleFormControlTextarea1"
+              cols="20"
+              rows="10"
+              id="texto"
+              name="texto"
+            >
+            </textarea>
+            <button type="button" class="btn btn-primary">Guardar</button>
+          </div>
+        </div>
+
+        <!--------------------------------->
+        <!-------EXPERIENCIA LABORAL------->
+        <!--------------------------------->
+        <div
+          class="tab-pane fade"
+          id="v-pills-experiencia-laboral"
+          role="tabpanel"
+          aria-labelledby="v-pills-experiencia-laboral-tab"
+          tabindex="0"
+        >
+          <h3>Experiencia laboral</h3>
+          <div class="mb-3">
+            <label for="formFileMultiple" class="form-label">Cursos</label>
+            <input
+              class="form-control mb-2"
+              type="text"
+              id="formFileMultiple"
+            />
+            <button type="button" class="btn btn-primary">Guardar</button>
+          </div>
+          <div class="agregar w-100 d-flex justify-content-center">
+            <button type="button" class="agregar btn btn-primary">
+              <i class="fa-solid fa-plus"></i>
+            </button>
+          </div>
+        </div>
+
+        <!------------------------------>
+        <!-------EDUCACION FORMAL------->
+        <!------------------------------>
+        <div
+          class="tab-pane fade"
+          id="v-pills-educacion"
+          role="tabpanel"
+          aria-labelledby="v-pills-educacion-tab"
+          tabindex="0"
+        >
+          <!-- cambio de educacion -->
+          <h3>Educacion Secundaria</h3>
+
+          <!-- titulo -->
+          <div class="mb-3">
+            <label for="titulo-sec" class="form-label">Titulo</label>
+            <input class="form-control mb-2" type="text" id="titulo-sec" />
+            <button type="button" class="btn btn-primary">Guardar</button>
+          </div>
+
+          <!-- colegio -->
+          <div class="mb-3">
+            <label for="estudios-sec" class="form-label">Colegio</label>
+            <input class="form-control mb-2" type="text" id="estudios-sec" />
+            <button type="button" class="btn btn-primary">Guardar</button>
+          </div>
+
+          <!-- tiempo -->
+          <div class="mb-3">
+            <div class="d-flex contenedor-fechas">
+              <label for="estudios-sec-inicio" class="form-label"
+                >Desde
+                <input
+                  class="form-control mb-2"
+                  type="date"
+                  id="estudios-sec-inicio"
+                />
+              </label>
+              <label for="estudios-sec-fin" class="form-label"
+                >Hasta
+                <input
+                  class="form-control mb-2"
+                  type="date"
+                  id="estudios-sec-fin"
+                />
+              </label>
+            </div>
+
+            <!-- EN CURSO -->
+            <div>
+              <label for="cursando-secu" class="form-label">En curso</label>
+              <input
+                class="mb-2"
+                id="cursando-secu"
+                name="estudios-formal"
+                type="radio"
+              />
+            </div>
+
+            <!-- EGRESADO -->
+            <div>
+              <label for="egresado-secu" class="form-label">Egresado</label>
+              <input
+                class="mb-2"
+                id="egresado-secu"
+                name="estudios-formal"
+                type="radio"
+              />
+            </div>
+
+            <!-- ABANDONADO -->
+            <div>
+              <label for="abandonado-secu" class="form-label">Abandonado</label>
+              <input
+                class="mb-2"
+                id="abandonado-secu"
+                name="estudios-formal"
+                type="radio"
+              />
+            </div>
+
+            <div>
+              <button type="button" class="btn btn-primary">Guardar</button>
+            </div>
+          </div>
+
+          <!-- titulo -->
+          <h3>Educacion Universitaria</h3>
+          <div class="mb-3">
+            <!-- titulo -->
+            <label for="titulo-uni" class="form-label">Titulo</label>
+            <input class="form-control mb-2" type="text" id="titulo-uni" />
+            <button type="button" class="btn btn-primary">Guardar</button>
+          </div>
+
+          <!-- universidad -->
+          <div class="mb-3">
+            <label for="estudios-uni" class="form-label">Universidad</label>
+            <input class="form-control mb-2" type="text" id="estudios-uni" />
+            <button type="button" class="btn btn-primary">Guardar</button>
+          </div>
+
+          <!-- tiempo -->
+          <div class="mb-3">
+            <div class="d-flex contenedor-fechas">
+              <label for="estudios-uni-inicio" class="form-label"
+                >Desde
+                <input
+                  class="form-control mb-2"
+                  type="date"
+                  id="estudios-uni-inicio"
+                />
+              </label>
+              <label for="estudios-uni-fin" class="form-label"
+                >Hasta
+                <input
+                  class="form-control mb-2"
+                  type="date"
+                  id="estudios-uni-fin"
+                />
+              </label>
+            </div>
+
+            <!-- CURSANDO -->
+            <div>
+              <label for="cursando-uni" class="form-label">En curso</label>
+              <input
+                class="mb-2"
+                id="cursando-uni"
+                name="estudios-uni"
+                type="radio"
+              />
+            </div>
+
+            <!-- EGRESADO -->
+            <div>
+              <label for="egresado-uni" class="form-label">Egresado</label>
+              <input
+                class="mb-2"
+                id="egresado-uni"
+                name="estudios-uni"
+                type="radio"
+              />
+            </div>
+
+            <!-- ABANDONADO -->
+            <div>
+              <label for="abandonado-uni" class="form-label">Abandonado</label>
+              <input
+                class="mb-2"
+                id="abandonado-uni"
+                name="abandonado-uni"
+                type="radio"
+              />
+            </div>
+
+            <div>
+              <button type="button" class="btn btn-primary">Guardar</button>
+            </div>
+          </div>
+        </div>
+
+        <!-------------------------------------->
+        <!-------EDUCACION COMPLEMENTARIA------->
+        <!-------------------------------------->
+        <div
+          class="tab-pane fade"
+          id="v-pills-educacion-complementaria"
+          role="tabpanel"
+          aria-labelledby="v-pills-educacion-complementaria-tab"
+          tabindex="0"
+        >
+          <!-- educacion complementaria -->
+          <h3>Educacion complementaria</h3>
+          <div class="mb-3">
+            <!-- titulo -->
+            <label for="titulo-curso" class="form-label">Titulo</label>
+            <input class="form-control mb-2" type="text" id="titulo-curso" />
+            <button type="button" class="btn btn-primary">Guardar</button>
+          </div>
+
+          <!-- institucion -->
+          <div class="mb-3">
+            <label for="cursos" class="form-label">Institucion</label>
+            <input class="form-control mb-2" type="text" id="cursos" />
+            <button type="button" class="btn btn-primary">Guardar</button>
+          </div>
+
+          <!-- tiempo -->
+          <div class="mb-3">
+            <div class="d-flex contenedor-fechas">
+              <label for="estudios-curso-inicio" class="form-label"
+                >Desde
+                <input
+                  class="form-control mb-2"
+                  type="date"
+                  id="estudios-curso-inicio"
+                />
+              </label>
+              <label for="estudios-curso-fin" class="form-label"
+                >Hasta
+                <input
+                  class="form-control mb-2"
+                  type="date"
+                  id="estudios-curso-fin"
+                />
+              </label>
+            </div>
+            <div class="mb-3">
+              <div>
+                <div>
+                  <label for="cursando-curso" class="form-label">
+                    En curso
+                    <input
+                      class="mb-2"
+                      id="cursando-curso"
+                      name="estudios-curso"
+                      type="radio"
+                    />
+                  </label>
+                </div>
+                <label for="egresado-curso" class="form-label">
+                  Egresado
+                  <input
+                    class="mb-2"
+                    id="egresado-curso"
+                    name="estudios-curso"
+                    type="radio"
+                  />
+                </label>
+              </div>
+              <div>
+                <button type="button" class="btn btn-primary">Guardar</button>
+              </div>
+            </div>
+
+            <div class="agregar w-100 d-flex justify-content-center">
+              <button type="button" class="agregar btn btn-primary">
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!------------------------->
+        <!-------HARD SKILLS------->
+        <!------------------------->
+        <div
+          class="tab-pane fade"
+          id="v-pills-hard-skills"
+          role="tabpanel"
+          aria-labelledby="v-pills-hard-skills-tab"
+          tabindex="0"
+        >
+          <h3>Hard Skills</h3>
+          <div class="mb-3">
+            <input
+              class="form-control mb-2"
+              type="text"
+              id="formFileMultiple"
+            />
+            <button type="button" class="btn btn-primary">Guardar</button>
+          </div>
+          <div class="agregar w-100 d-flex justify-content-center">
+            <button type="button" class="agregar btn btn-primary">
+              <i class="fa-solid fa-plus"></i>
+            </button>
+          </div>
+        </div>
+
+        <!------------------------->
+        <!-------SOFT SKILLS------->
+        <!------------------------->
+        <div
+          class="tab-pane fade"
+          id="v-pills-soft-skills"
+          role="tabpanel"
+          aria-labelledby="v-pills-soft-skills-tab"
+          tabindex="0"
+        >
+          <h3>Soft Skills</h3>
+          <div class="mb-3">
+            <input
+              class="form-control mb-2"
+              type="text"
+              id="formFileMultiple"
+            />
+            <button type="button" class="btn btn-primary">Guardar</button>
+          </div>
+          <div class="agregar w-100 d-flex justify-content-center">
+            <button type="button" class="agregar btn btn-primary">
+              <i class="fa-solid fa-plus"></i>
+            </button>
+          </div>
+        </div>
+
+        <!------------------------->
+        <!--------PROYECTOS-------->
+        <!------------------------->
+        <div
+          class="tab-pane fade"
+          id="v-pills-proyectos"
+          role="tabpanel"
+          aria-labelledby="v-pills-proyectos-tab"
+          tabindex="0"
+        >
+          <h3>Proyectos</h3>
+          <div class="mb-3">
+            <label for="formFileMultiple" class="form-label">
+              Seleccionar Foto Del Proyecto
+            </label>
+            <input
+              class="form-control mb-2"
+              type="file"
+              id="formFileMultiple"
+              multiple
+            />
+            <button type="button" class="btn btn-primary">Guardar</button>
+          </div>
+
+          <!-- Titulo proyecto -->
+          <div class="mb-3">
+            <label for="titulo-proyecto" class="form-label">Titulo</label>
+            <input class="form-control mb-2" type="text" id="titulo-proyecto" />
+            <button type="button" class="btn btn-primary">Guardar</button>
+          </div>
+
+          <!-- Tecnologias utilizadas -->
+          <div class="mb-3">
+            <label for="tecnologias" class="form-label"
+              >Tecnologias Utilizadas</label
+            >
+            <input class="form-control mb-2" type="text" id="tecnologias" />
+            <button type="button" class="btn btn-primary">Guardar</button>
+          </div>
+
+          <div class="agregar w-100 d-flex justify-content-center">
+            <button type="button" class="agregar btn btn-primary">
+              <i class="fa-solid fa-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
+</main>

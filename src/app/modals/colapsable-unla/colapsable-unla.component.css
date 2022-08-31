@@ -1,0 +1,6 @@
+.colapsable .card-body {
+  width: 18rem;
+}
+.colapsable {
+  min-height: 140px;
+}

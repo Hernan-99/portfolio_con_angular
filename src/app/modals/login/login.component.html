@@ -1,0 +1,61 @@
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content bg-dark">
+      <!-- header titulo -->
+      <div class="modal-header border-0">
+        <h5 class="modal-title text-light" id="exampleModalLabel">Login</h5>
+        <!-- equis para salir del modal -->
+        <i
+          class="cerrar fa-solid text-light f-4 fa-xmark"
+          type="button"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        >
+        </i>
+      </div>
+      <!-- formulario del modal -->
+      <form class="formulario modal-body">
+        <div class="mb-3">
+          <label for="exampleInputEmail" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail"
+            aria-describedby="emailHelp"
+            placeholder="ejemplo@gmail.com"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword" class="form-label">
+            Contraseña
+          </label>
+          <input
+            type="password"
+            class="form-control"
+            id="exampleInputPassword"
+            placeholder="********"
+            required
+          />
+        </div>
+        <!-- btn para ingresar -->
+        <!-- el href no es necesario (para links externos si) porque se reemplaza con el routerlink -->
+        <!--data-bs-dismiss="modal" es para cerrar el modal al ingresar -->
+        <a
+          type="button"
+          routerLink="/dashboard"
+          data-bs-dismiss="modal"
+          class="border-0 btn btn-ingresar"
+        >
+          Ingresar
+        </a>
+      </form>
+    </div>
+  </div>
+</div>
