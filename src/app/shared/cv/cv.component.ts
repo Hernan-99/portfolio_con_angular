@@ -1,5 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, HostListener, Inject, inject, OnInit } from '@angular/core';
+import { PrincipalService } from 'src/app/services/principal.service';
 
 @Component({
   selector: 'app-cv',
@@ -7,9 +8,13 @@ import { Component, HostListener, Inject, inject, OnInit } from '@angular/core';
   styleUrls: ['./cv.component.css'],
 })
 export class CvComponent implements OnInit {
+  curriculum: string = '';
   cvDescarga?: boolean;
 
-  constructor(@Inject(DOCUMENT) private document: Document) {}
+  constructor(
+    @Inject(DOCUMENT) private document: Document,
+    private principalService: PrincipalService
+  ) {}
 
   @HostListener('window:scroll', [])
   onWindowScroll(): void {
@@ -28,5 +33,9 @@ export class CvComponent implements OnInit {
       this.cvDescarga = false;
     }
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.principalService.getDatos().subscribe((principal) => {
+      this.curriculum = principal.curriculum;
+    });
+  }
 }
