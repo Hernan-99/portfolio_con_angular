@@ -9,11 +9,13 @@
   box-shadow: 6px 6px 10px 1px #000000;
   transition: all 500ms;
   bottom: -3rem;
+  /* bottom: 10rem; */
   right: 1rem;
 }
-/* .ocultar {
+.ocultar {
   bottom: 10rem;
-} */
+  right: 1rem;
+}
 .btn-cv:hover {
   background-color: #0b263b;
   transform: scale(1.05);

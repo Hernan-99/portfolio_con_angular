@@ -1,31 +1,36 @@
 <div class="contenedorTexto">
-  <h3 class="titulo-about-me">Acerca de mi</h3>
+  <h3 class="titulo-about-me">{{ tituloAcercaDe }}</h3>
   <p>
-    Soy una persona apasionada por el desarrollo web y comprometido con mis
-    tareas. Desde el año 2020 me capacito de forma autodidacta. A dia de hoy
-    pude superar y terminar diversos cursos, de los cuales destaco un bootcamp
-    de "desarrollo fullstack con Nodejs" del programa
+    {{ dPart1 }}
     <a
       href="http://digitalers.com.ar/cursos.html"
       target="_blank"
       class="resaltar"
-      >"Digit@lers"</a
-    >, impartido por educación it y telecom, y la primer etapa de
+    >
+      <!-- "Digit@lers" -->
+      {{ digitalers }} </a
+    >{{ dPart2 }}
     <a
       href="https://www.argentina.gob.ar/produccion/transformacion-digital-y-economia-del-conocimiento/argentina-programa"
       target="_blank"
       class="resaltar"
-      >"Argentina programa"</a
+      >{{ ap }}</a
     >
-    brindado por el CESSI. Por otro lado Tambien tome cursos de
-    <a href="https://www.udemy.com/" target="_blank" class="resaltar">Udemy</a>,
-    y un curso de desarrollo con Python brindado por el
-    <a class="resaltar" href="https://polotic.misiones.gob.ar/" target="_blank"
-      >PoloTIC (Misiones)</a
-    >. Actualmente soy ingresante de la Tecnicatura en programación de la
-    <a href="https://www.unab.edu.ar/" target="_blank" class="resaltar">UNaB</a
-    >. Tengo gran interés en las nuevas tecnologías, me capacito constantemente
-    para superarme y considero que tengo la capacidad para seguir aprendiendo y
-    aplicar mis conocimientos en el ámbito profesional.
+    {{ dPart3 }}
+    <a href="https://www.udemy.com/" target="_blank" class="resaltar">{{
+      udemy
+    }}</a>
+    {{ dPart4 }}
+    <a
+      class="resaltar"
+      href="https://polotic.misiones.gob.ar/"
+      target="_blank"
+      >{{ poloTic }}</a
+    >{{ dPart5 }}
+
+    <a href="https://www.unab.edu.ar/" target="_blank" class="resaltar">{{
+      ispc
+    }}</a>
+    {{ dPart6 }}
   </p>
 </div>

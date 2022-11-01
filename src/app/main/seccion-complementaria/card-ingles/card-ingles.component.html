@@ -1,16 +1,15 @@
 <div class="card card-cursos text-bg-dark">
   <video
-    src="../../../../assets/multimedia/videos/curso3.mp4"
+    [src]="video"
     style="filter: blur(3px)"
     class="card-img"
     autoplay="true"
     loop="true"
   ></video>
   <div class="descripcion-cursos card-img-overlay">
-    <h5 class="card-title">PoloTIC Misiones - Ingles tecnico</h5>
+    <h5 class="card-title">{{ titulo }}</h5>
     <p class="card-text">
-      Durante el año 2020 realice el curso de ingles tecnico para desarrollo de
-      software brindado por el polo tecnologico de Cordoba.
+      {{ descripcion }}
     </p>
     <a class="nav-link" target="_blank" href="https://polotic.misiones.gob.ar/"
       >Conocer mas</a

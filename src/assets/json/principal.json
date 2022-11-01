@@ -1,0 +1,242 @@
+{
+  "navbar": {
+    "logoAP": "../../../assets/img/logoAP.jpg",
+    "iconoGitHub": "fa-square-github",
+    "iconoIN": "fa-linkedin",
+    "iconoIg": "fa-square-instagram",
+    "iconoTw": "fa-square-twitter",
+    "iconoLogin": "fa-user-lock"
+  },
+
+  "nombre": "Hernan",
+  "apellido": "Sanchez",
+  "profesion": "Full Stack Developer jr",
+  "foto": "../../../assets/img/perfil.jpg",
+  "hero": "hero",
+
+  "acercaDe": "Acerca de mi",
+  "dPart1": "Soy una persona apasionada por el desarrollo web y comprometido con mis tareas. Desde el año 2020 me capacito de forma autodidacta. A dia de hoy pude superar y terminar diversos cursos, de los cuales destaco un bootcamp de Desarrollo FullStack con Nodejs del programa",
+  "digitalers": "'Digit@lers'",
+  "dPart2": ", impartido por educación it y telecom, y la primer etapa de ",
+  "ap": "'Argentina programa'",
+  "dPart3": "brindado por el CESSI. Por otro lado Tambien tome cursos de",
+  "udemy": "Udemy",
+  "dPart4": ", y un curso de desarrollo con Python brindado por el ",
+  "poloTic": "PoloTIC (Misiones). ",
+  "dPart5": "Actualmente soy estudiante de la Tecnicatura en programación del",
+  "ispc": " ISPC.",
+  "dPart6": "Tengo gran interés en las nuevas tecnologías, me capacito constantemente para superarme y considero que tengo la capacidad para seguir aprendiendo y aplicar mis conocimientos en el ámbito profesional.",
+
+  "expLabTitulo": "Experiencia laboral",
+  "eduFormalTitulo": "Educacion Formal",
+  "eduCompleTitulo": "Educacion Complementaria",
+  "experiencia-laboral": [
+    {
+      "id": 0,
+      "puesto": "Ventas",
+      "inicio": "Sep. 2020",
+      "fin": "Sep. 2020",
+      "descripcion": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error quod nulla quos deserunt?"
+    },
+    {
+      "id": 1,
+      "puesto": "Maquetacion web",
+      "inicio": "Sep. 2020",
+      "fin": "Sep. 2020",
+      "descripcion": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error quod nulla quos deserunt?"
+    },
+    {
+      "id": 2,
+      "puesto": "Armado de pc",
+      "inicio": "Sep. 2020",
+      "fin": "Sep. 2020",
+      "descripcion": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error quod nulla quos deserunt?"
+    }
+  ],
+
+  "ventas": {
+    "imgVentas": "../../../../assets/img/ventas.jpg",
+    "cargo": "Ventas",
+    "inicio": "Sep. 2020",
+    "fin": "Sep. 2020",
+    "descripcion": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error quod nulla quos deserunt?"
+  },
+
+  "maquetacion": {
+    "imgMaquetacion": "../../../../assets/img/ventas.jpg",
+    "cargo": "Maquetacion web",
+    "inicio": "Sep. 2020",
+    "fin": "Sep. 2020",
+    "descripcion": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error quod nulla quos deserunt??"
+  },
+
+  "armadoPc": {
+    "imgPc": "../../../../assets/img/armado-pc.jpg",
+    "cargo": "Armado de pc",
+    "inicio": "Dic. 2019",
+    "fin": "Sep. 2020",
+    "descripcion": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error quod nulla quos deserunt???"
+  },
+
+  "idoSec": {
+    "institucion": "Instituto Don Orione",
+    "acronimo": "(I.D.O)",
+    "inicio": "Mar. 2012",
+    "fin": "Dic. 2017",
+    "titulo": "Bachiller en ciencias naturales."
+  },
+  "unlaLic": {
+    "institucion": "Universidad Nacional de Lanus (UNLa)",
+    "inicio": "Mar. 2019",
+    "fin": "Actualidad",
+    "titulo": "Licenciatura en nutricion. Cursando 3er año."
+  },
+  "ispcTec": {
+    "institucion": "Instituto Superior Politecnico Cordoba (ISPC)",
+    "inicio": "Mar. 2022",
+    "fin": "Actualidad",
+    "titulo": "Tecnicatura en desarrollo web y aplicaciones digitales. Cursando 1er año."
+  },
+
+  "educacion_complementaria": [
+    {
+      "id": 0,
+      "institucion": "PoloTIC Misiones - Ingles tecnico",
+      "descripcion": "Durante el año 2020 realice el curso de ingles tecnico para desarrollo de software brindado por el polo tecnologico de Cordoba."
+    },
+    {
+      "id": 1,
+      "institucion": "Digitalers - Desarrollo Full Stack Node.js",
+      "descripcion": "En el año 2021, me capacite por medio del programa digitalers desarrollado por educacion IT y Telecom Argentina."
+    },
+    {
+      "id": 2,
+      "institucion": "Arg programa - #SeProgramar",
+      "descripcion": "A finales del 2021, curse #SeProgramar de Argentina programa donde adquiri mas conocimientos de JS y POO con Ruby."
+    },
+    {
+      "id": 3,
+      "institucion": "Arg programa - #YoProgramo",
+      "descripcion": "Actualemente curso #YoProgramo donde profundizo en tecnologias como JS, TS, Angular, etc. Para convertirme en Desarrollador Full Stack Jr."
+    }
+  ],
+
+  "habilidades": [
+    {
+      "id": 0,
+      "titulo": "Gestion de tiempo",
+      "icono": "fa-solid fa-business-time text-success",
+      "porcentaje": "75%",
+      "color": "gest-tiempo"
+    },
+    {
+      "id": 1,
+      "titulo": "Comunicacion",
+      "icono": "fa-solid fa-comment text-success",
+      "porcentaje": "90%",
+      "color": "comunicacion"
+    },
+    {
+      "id": 2,
+      "titulo": "Trabajo en grupo",
+      "icono": "fa-solid fa-users-line text-success",
+      "porcentaje": "100%",
+      "color": "trab-grupo"
+    },
+    {
+      "id": 3,
+      "titulo": "Capacidad resolutiva",
+      "icono": "fa-solid fa-brain text text-success",
+      "porcentaje": "85%",
+      "color": "cap-res"
+    },
+    {
+      "id": 4,
+      "titulo": "Creatividad",
+      "icono": "fa-solid fa-palette text-success",
+      "porcentaje": "100%",
+      "color": "cratividad"
+    }
+  ],
+
+  "lenguajes": [
+    {
+      "id": 0,
+      "titulo": "HTML",
+      "icono": "fa-brands fa-html5",
+      "porcentaje": "95%",
+      "color_icono": "html",
+      "color_barra": "html"
+    },
+    {
+      "id": 1,
+      "titulo": "CSS",
+      "icono": "fa-brands fa-css3-alt",
+      "porcentaje": "95%",
+      "color_icono": "css",
+      "color_barra": "css"
+    },
+    {
+      "id": 2,
+      "titulo": "BootStrap",
+      "icono": "fa-brands fa-bootstrap",
+      "porcentaje": "95%",
+      "color_icono": "bootstrap",
+      "color_barra": "bootstrap"
+    },
+    {
+      "id": 3,
+      "titulo": "JavaScript",
+      "icono": "fa-brands fa-square-js",
+      "porcentaje": "43.33333333333333%",
+      "color_icono": "javascript",
+      "color_barra": "javascript"
+    },
+    {
+      "id": 4,
+      "titulo": "Angular",
+      "icono": "fa-brands fa-angular",
+      "porcentaje": "16.43835616438356%",
+      "color_icono": "angular",
+      "color_barra": "angular"
+    }
+  ],
+
+  "proyectos": [
+    {
+      "titulo": "Trecafe (cafeteria ficticia, responsive)",
+      "descripcion": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+      "icono1": "fa-brands fa-html5",
+      "icono2": "fa-brands fa-css3-alt",
+      "icono3": "fa-brands fa-square-js"
+    },
+    {
+      "titulo": "Formulario de pago (responsive)",
+      "descripcion": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+      "icono1": "fa-brands fa-html5",
+      "icono2": "fa-brands fa-css3-alt",
+      "icono3": "fa-brands fa-bootstrap"
+    },
+    {
+      "titulo": "Reparacion de iphone (responsive)",
+      "descripcion": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+      "icono1": "fa-brands fa-html5",
+      "icono2": "fa-brands fa-css3-alt",
+      "icono3": "fa-brands fa-bootstrap"
+    },
+    {
+      "titulo": "Formulario interactivo",
+      "descripcion": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+      "icono1": "fa-brands fa-html5",
+      "icono2": "fa-brands fa-css3-alt",
+      "icono3": "fa-brands fa-square-js"
+    },
+    {
+      "titulo": "Editor de codigo",
+      "descripcion": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+      "icono1": "fa-brands fa-html5",
+      "icono2": "fa-brands fa-css3-alt",
+      "icono3": "fa-brands fa-square-js"
+    }
+  ]
+}

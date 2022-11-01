@@ -1,11 +1,11 @@
 <!-------------------------------------------------------------------------------------------->
 <!-------------------------SECCION HERO - BANNER & NOMBRE - PROFESION------------------------->
 <!-------------------------------------------------------------------------------------------->
-<section class="hero row">
+<section class="row" [ngClass]="hero">
   <div class="contenedorTexto">
     <div class="texto">
-      <h1 class="Nombre">Hernan Sanchez</h1>
-      <h2 class="Profesion">Full Stack Developer jr</h2>
+      <h1 class="Nombre">{{ nombre }} {{ apellido }}</h1>
+      <h2 class="Profesion">{{ profesion }}</h2>
     </div>
   </div>
 </section>

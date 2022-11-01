@@ -1,18 +1,13 @@
 <div class="card">
-  <img
-    src="../../../assets/img/unla.png"
-    style="height: 15rem"
-    class="card-img-top"
-    alt="..."
-  />
+  <img [src]="imgUni" style="height: 15rem" class="card-img-top" alt="..." />
 
   <div class="card-body">
-    <h5 class="card-title">Universidad Nacional de Lanus (UNLa)</h5>
+    <h5 class="card-title">{{ universidad }}</h5>
     <div class="desde-hasta d-flex">
       <p style="font-weight: bold">Desde:</p>
-      <span class="me-2 ms-2">Mar. 2019</span>
+      <span class="me-2 ms-2">{{ inicio }}</span>
       <p style="font-weight: bold">Hasta:</p>
-      <span class="me-2 ms-2">Actualidad</span>
+      <span class="me-2 ms-2">{{ fin }}</span>
     </div>
     <p>
       <a

@@ -1,6 +1,10 @@
-import { NgModule } from '@angular/core';
+// MODULOS
+import { ElementRef, HostListener, NgModule, ViewChild } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+//hay que importar esto manualmente
+import { HttpClientModule } from '@angular/common/http';
 
+// COMPONENTES
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header/header.component';
@@ -17,8 +21,6 @@ import { SeccionEducacionFormalComponent } from './main/seccion-educacion-formal
 import { SeccionEducacionComplementariaComponent } from './main/seccion-educacion-complementaria/seccion-educacion-complementaria.component';
 import { SeccionHardSoftSkillsComponent } from './main/seccion-hard-soft-skills/seccion-hard-soft-skills.component';
 import { SeccionProyectosComponent } from './main/seccion-proyectos/seccion-proyectos.component';
-//------------------------CURRICULUM-------------------
-import { CvComponent } from './main/cv/cv.component';
 import { FooterContenedorComponent } from './footer/footer-contenedor/footer-contenedor.component';
 import { AcercaDeComponent } from './main/seccion-about-me/acerca-de/acerca-de.component';
 import { FotoPerfilComponent } from './main/seccion-about-me/foto-perfil/foto-perfil.component';
@@ -47,6 +49,9 @@ import { IndexComponent } from './index/index.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeaderDahsboardComponent } from './dashboard/header-dahsboard/header-dahsboard.component';
 import { MainDahsboardComponent } from './dashboard/main-dahsboard/main-dahsboard.component';
+import { SharedComponent } from './shared/shared.component';
+//------------------------CURRICULUM-------------------
+import { CvComponent } from './shared/cv/cv.component';
 
 @NgModule({
   declarations: [
@@ -65,8 +70,6 @@ import { MainDahsboardComponent } from './dashboard/main-dahsboard/main-dahsboar
     SeccionEducacionComplementariaComponent,
     SeccionHardSoftSkillsComponent,
     SeccionProyectosComponent,
-    //------------------------CURRICULUM-------------------
-    CvComponent,
     FooterContenedorComponent,
     AcercaDeComponent,
     FotoPerfilComponent,
@@ -95,8 +98,11 @@ import { MainDahsboardComponent } from './dashboard/main-dahsboard/main-dahsboar
     DashboardComponent,
     HeaderDahsboardComponent,
     MainDahsboardComponent,
+    SharedComponent,
+    //------------------------CURRICULUM-------------------
+    CvComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })

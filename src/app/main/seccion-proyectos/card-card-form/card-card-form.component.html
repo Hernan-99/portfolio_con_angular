@@ -1,20 +1,23 @@
 <!-- CARD-CONTENIDO -->
 <div class="card h-100 bg-celeste">
   <div class="card-body">
-    <h5 class="card-title">Formulario de pago (responsive)</h5>
+    <h5 class="card-title">{{ titulo }}</h5>
     <p class="card-text">
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
+      {{ descripcion }}
     </p>
     <div class="d-flex justify-content-around">
-      <i class="me-1 tec html mb-0 fa-brands fa-html5 fs-2"></i>
-      <i class="me-1 tec css fa-brands fa-css3-alt fs-2"></i>
-      <i class="me-1 tec bootstrap fa-brands fa-bootstrap fs-2"></i>
+      <i class="me-1 tec html mb-0 {{ icono1 }} fs-2"></i>
+      <i class="me-1 tec css {{ icono2 }} fs-2"></i>
+      <i class="me-1 tec bootstrap {{ icono3 }} fs-2"></i>
     </div>
   </div>
 
   <div class="card-footer">
-    <a href="#" class="card-link link link">Card link</a>
-    <a href="#" class="card-link link link">Another link</a>
+    <a
+      href="https://metodosdepagos.netlify.app/"
+      target="_blank"
+      class="card-link link link"
+      >Visitar sitio</a
+    >
   </div>
 </div>

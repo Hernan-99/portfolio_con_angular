@@ -1,20 +1,15 @@
 <div class="card">
-  <img
-    src="../../../assets/img/escuela.jpg"
-    style="height: 15rem"
-    class="card-img-top"
-    alt="..."
-  />
+  <img [src]="imgSecu" style="height: 15rem" class="card-img-top" alt="..." />
   <div class="card-body">
     <h5 class="card-title">
-      Instituto Don Orione <br />
-      (I.D.O)
+      {{ secundaria }} <br />
+      {{ acronimo }}
     </h5>
     <div class="desde-hasta d-flex">
       <p>Desde:</p>
-      <span class="me-2 ms-2">Mar. 2012</span>
+      <span class="me-2 ms-2">{{ inicio }}</span>
       <p>Hasta:</p>
-      <span class="me-2 ms-2">Dic. 2017</span>
+      <span class="me-2 ms-2">{{ fin }}</span>
     </div>
     <p>
       <a

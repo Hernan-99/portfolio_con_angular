@@ -7,7 +7,6 @@ const routes: Routes = [
   { path: 'index', component: IndexComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: '', redirectTo: 'index', pathMatch: 'full' },
-  // { path: '**', component: Errorcomponent}, agregar e importar
 ];
 
 @NgModule({

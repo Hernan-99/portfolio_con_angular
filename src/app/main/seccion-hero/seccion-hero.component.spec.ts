@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { SeccionHeroComponent } from './seccion-hero.component';
 
 describe('SeccionHeroComponent', () => {
@@ -8,9 +7,8 @@ describe('SeccionHeroComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SeccionHeroComponent ]
-    })
-    .compileComponents();
+      declarations: [SeccionHeroComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(SeccionHeroComponent);
     component = fixture.componentInstance;

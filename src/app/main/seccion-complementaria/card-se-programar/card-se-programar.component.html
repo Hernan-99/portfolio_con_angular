@@ -1,16 +1,16 @@
 <div class="card card-cursos text-bg-dark">
+  <!-- src="../../../../assets/multimedia/videos/curso2.mp4" -->
   <video
-    src="../../../../assets/multimedia/videos/curso2.mp4"
+    [src]="video"
     style="filter: blur(3px)"
     class="card-img"
     autoplay="true"
     loop="true"
   ></video>
   <div class="descripcion-cursos card-img-overlay">
-    <h5 class="card-title">Arg programa - #SeProgramar</h5>
+    <h5 class="card-title">{{ titulo }}</h5>
     <p class="card-text">
-      A finales del 2021, curse #SeProgramar de Argentina programa donde adquiri
-      mas conocimientos de JS y POO con Ruby.
+      {{ descripcion }}
     </p>
     <a
       class="nav-link"

@@ -1,16 +1,15 @@
 <div class="card card-cursos text-bg-dark">
   <video
-    src="../../../../assets/multimedia/videos/curso1.mp4"
+    [src]="video"
     style="filter: blur(3px)"
     class="card-img"
     autoplay="true"
     loop="true"
   ></video>
   <div class="descripcion-cursos card-img-overlay">
-    <h5 class="card-title">Digitalers - Desarrollo Full Stack Node.js</h5>
+    <h5 class="card-title">{{ titulo }}</h5>
     <p class="card-text">
-      En el año 2021, me capacite por medio del programa digitalers desarrollado
-      por educacion IT y Telecom Argentina.
+      {{ descripcion }}
     </p>
     <a
       class="nav-link"
