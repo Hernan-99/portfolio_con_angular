@@ -1,5 +1,7 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { PrincipalService } from 'src/app/services/principal.service';
+import { Experiencia } from 'src/app/models/experiencia';
+import { ExperienciaService } from 'src/app/services/experiencia.service';
 
 @Component({
   selector: 'app-seccion-experiencia-laboral',
@@ -7,12 +9,22 @@ import { PrincipalService } from 'src/app/services/principal.service';
   styleUrls: ['./seccion-experiencia-laboral.component.css'],
 })
 export class SeccionExperienciaLaboralComponent implements OnInit {
-  titulo: string = '';
-  constructor(private principalService: PrincipalService) {}
+  public experiencias: Experiencia[] = [];
+
+  constructor(private datosExp: ExperienciaService) {}
 
   ngOnInit(): void {
-    this.principalService.getDatos().subscribe((principal) => {
-      this.titulo = principal.expLabTitulo;
+    this.getExp();
+  }
+
+  public getExp(): void {
+    this.datosExp.getExperiencia().subscribe({
+      next: (rta: Experiencia[]) => {
+        this.experiencias = rta;
+      },
+      error: (err: HttpErrorResponse) => {
+        alert(err.message);
+      },
     });
   }
 }

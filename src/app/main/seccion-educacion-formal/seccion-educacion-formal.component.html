@@ -1,20 +1,46 @@
 <section class="content-educacion row">
   <div class="d-flex justify-content-center mb-5">
-    <h3 class="titulo-educacion">{{ titulo }}</h3>
+    <h3 class="titulo-educacion">Educacion Formal</h3>
   </div>
 
-  <article class="col-md-4 col-sm-6 col-12 d-flex justify-content-center mb-5">
-    <!-- app-crd-secu -->
-    <app-card-secu></app-card-secu>
-  </article>
-
-  <article class="col-md-4 col-sm-6 col-12 d-flex justify-content-center mb-5">
-    <!-- app-crd-uni -->
-    <app-card-uni></app-card-uni>
-  </article>
-
-  <article class="col-md-4 col-sm-6 col-12 d-flex justify-content-center mb-5">
-    <!-- app-crd-tec -->
-    <app-card-tec></app-card-tec>
+  <article
+    class="col-md-4 col-sm-6 col-12 d-flex justify-content-center mb-5"
+    *ngFor="let educacion of educaciones"
+  >
+    <div class="card">
+      <img
+        [src]="educacion.imgEdu"
+        style="height: 15rem"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body">
+        <h5 class="card-title">
+          {{ educacion.institucion }}
+        </h5>
+        <div class="desde-hasta d-flex">
+          <p>Desde:</p>
+          <span class="me-2 ms-2">{{
+            educacion.fechaInicio | date : "MM/yy"
+          }}</span>
+          <p>Hasta:</p>
+          <span class="me-2 ms-2">{{
+            educacion.fechaFin | date : "MM/yy"
+          }}</span>
+        </div>
+        <p>
+          <a
+            class="btn btn-colappse-horizontal btn-primary"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapse-secu"
+            aria-expanded="false"
+            aria-controls="collapse-secu"
+          >
+            {{ educacion.titulo }}
+          </a>
+        </p>
+      </div>
+    </div>
   </article>
 </section>

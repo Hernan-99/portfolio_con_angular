@@ -1,6 +1,9 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
-import { PrincipalService } from 'src/app/services/principal.service';
+//importaciones de clase y servicio
+import { Persona } from 'src/app/models/persona';
+import { PersonaService } from 'src/app/services/persona.service';
 
 @Component({
   selector: 'app-descripcion',
@@ -8,46 +11,23 @@ import { PrincipalService } from 'src/app/services/principal.service';
   styleUrls: ['./descripcion.component.css'],
 })
 export class DescripcionComponent implements OnInit {
-  tituloAcercaDe: string = '';
-  descripcionAcercaDe: string = '';
-  dPart1: string = '';
-  digitalers: string = '';
+  public persona: Persona | undefined;
+  public editPersona: Persona | undefined;
 
-  dPart2: string = '';
-  ap: string = '';
-
-  dPart3: string = '';
-  udemy: string = '';
-
-  dPart4: string = '';
-  poloTic: string = '';
-
-  dPart5: string = '';
-  ispc: string = '';
-
-  dPart6: string = '';
-  constructor(private principalService: PrincipalService) {}
+  constructor(private descPersona: PersonaService) {}
 
   ngOnInit(): void {
-    this.principalService.getDatos().subscribe((principal) => {
-      this.tituloAcercaDe = principal.acercaDe;
-      // this.titulo_seccion = principal.acercaDeDescripcion;
-      this.dPart1 = principal.dPart1;
-      this.digitalers = principal.digitalers;
+    this.getDescPersona();
+  }
 
-      this.dPart2 = principal.dPart2;
-      this.ap = principal.ap;
-
-      this.dPart3 = principal.dPart3;
-      this.udemy = principal.udemy;
-
-      this.dPart4 = principal.dPart4;
-      this.poloTic = principal.poloTic;
-
-      this.dPart5 = principal.dPart5;
-      this.ispc = principal.ispc;
-
-      this.dPart6 = principal.dPart6;
+  public getDescPersona(): void {
+    this.descPersona.getPersona().subscribe({
+      next: (rta: Persona) => {
+        this.persona = rta;
+      },
+      error: (err: HttpErrorResponse) => {
+        alert(err.message);
+      },
     });
   }
 }

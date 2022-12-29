@@ -1,21 +1,33 @@
 <section class="content-experiencia row">
   <div class="d-flex justify-content-center mb-5">
-    <h3 class="titulo-experiencia">{{ titulo }}</h3>
+    <h3 class="titulo-experiencia">Experiencia laboral</h3>
   </div>
 
   <!-- card -->
-  <article class="col-md-4 col-sm-6 col-12 d-flex justify-content-center mb-5">
+  <article
+    class="col-md-4 col-sm-6 col-12 d-flex justify-content-center mb-5"
+    *ngFor="let experiencia of experiencias"
+  >
     <!-- app-card-ventas -->
-    <app-card-ventas></app-card-ventas>
-  </article>
-
-  <article class="col-md-4 col-sm-6 col-12 d-flex justify-content-center mb-5">
-    <!-- app-card-maquetacion -->
-    <app-card-maquetacion></app-card-maquetacion>
-  </article>
-
-  <article class="col-md-4 col-sm-6 col-12 d-flex justify-content-center mb-5">
-    <!-- app-card-pc -->
-    <app-card-pc></app-card-pc>
+    <div class="card">
+      <img [src]="experiencia.imgTrabajo" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">{{ experiencia.puesto }}</h5>
+        <div class="desde-hasta d-flex">
+          <p class="desde-hasta-p">Desde:</p>
+          <span class="me-2 ms-2">{{
+            experiencia.fechaInicio | date : "MM/yy"
+          }}</span>
+          <p class="desde-hasta-p">Hasta:</p>
+          <span class="me-2 ms-2">{{
+            experiencia.fechaFin | date : "MM/yy"
+          }}</span>
+        </div>
+        <p class="card-text mb-2">Descripcion del puesto:</p>
+        <div class="descripcion">
+          <p>{{ experiencia.descripcionPuesto }}</p>
+        </div>
+      </div>
+    </div>
   </article>
 </section>

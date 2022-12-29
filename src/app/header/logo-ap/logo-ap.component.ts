@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PrincipalService } from 'src/app/services/principal.service';
+import { PrincipalService } from 'src/app/servicios/principal.service';
 
 @Component({
   selector: 'app-logo-ap',

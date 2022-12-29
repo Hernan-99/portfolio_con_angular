@@ -1,0 +1,938 @@
+<!-- AGREGAR BOTONES DE CANCELAR -->
+
+<main class="container-fluid" *ngIf="persona">
+  <section class="row dashboard">
+    <!-- ASIDE - BARRA DE ADMINISTRACION -->
+    <article class="col-md-3 col-sm-6">
+      <div class="d-flex justify-content-center">
+        <div
+          class="nav flex-column nav-pills me-3"
+          id="v-pills-tab"
+          role="tablist"
+          aria-orientation="vertical"
+        >
+          <!-- BTN-DATOS PERSONALES -->
+          <button
+            class="nav-link active"
+            id="v-pills-datos-personales-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#v-pills-datos-personales"
+            type="button"
+            role="tab"
+            aria-controls="v-pills-datos-personales"
+            aria-selected="true"
+          >
+            Datos Personales
+          </button>
+
+          <!-- BTN-ABOUT ME -->
+          <button
+            class="nav-link"
+            id="v-pills-about-me-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#v-pills-about-me"
+            type="button"
+            role="tab"
+            aria-controls="v-pills-about-me"
+            aria-selected="false"
+          >
+            About Me
+          </button>
+
+          <!-- BTN-EXPERIENCIA LABORAL -->
+          <button
+            class="nav-link"
+            id="v-pills-experiencia-laboral-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#v-pills-experiencia-laboral"
+            type="button"
+            role="tab"
+            aria-controls="v-pills-experiencia-laboral"
+            aria-selected="false"
+          >
+            Experiencia laboral
+          </button>
+
+          <!-- BTN-EDUCACION FORMAL-->
+          <button
+            class="nav-link"
+            id="v-pills-educacion-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#v-pills-educacion"
+            type="button"
+            role="tab"
+            aria-controls="v-pills-educacion"
+            aria-selected="false"
+          >
+            Educacion Formal
+          </button>
+
+          <!-- BTN-EDUCACION COMPLEMENTARIA-->
+          <button
+            class="nav-link"
+            id="v-pills-educacion-complementaria-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#v-pills-educacion-complementaria"
+            type="button"
+            role="tab"
+            aria-controls="v-pills-educacion-complementaria"
+            aria-selected="false"
+          >
+            Educacion Complementaria
+          </button>
+
+          <!-- BTN-HARD SKILLS -->
+          <button
+            class="nav-link"
+            id="v-pills-hard-skills-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#v-pills-hard-skills"
+            type="button"
+            role="tab"
+            aria-controls="v-pills-hard-skills"
+            aria-selected="false"
+          >
+            Hard Skills
+          </button>
+
+          <!-- BTN-SOFT SKILLS -->
+          <button
+            class="nav-link"
+            id="v-pills-soft-skills-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#v-pills-soft-skills"
+            type="button"
+            role="tab"
+            aria-controls="v-pills-soft-skills"
+            aria-selected="false"
+          >
+            Soft Skills
+          </button>
+
+          <!-- BTN-PROYECTOS -->
+          <button
+            class="nav-link"
+            id="v-pills-proyectos-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#v-pills-proyectos"
+            type="button"
+            role="tab"
+            aria-controls="v-pills-proyectos"
+            aria-selected="false"
+          >
+            Proyectos
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- MODIFICACION DE DATOS -->
+    <article class="col-md-9 col-sm-6">
+      <!------------------------>
+      <!-------CONTENEDOR------->
+      <!------------------------>
+      <div class="tab-content" id="v-pills-tabContent">
+        <!---------------------->
+        <!---DATOS PERSONALES--->
+        <!---------------------->
+        <div
+          class="tab-pane fade show active"
+          id="v-pills-datos-personales"
+          role="tabpanel"
+          aria-labelledby="v-pills-datos-personales-tab"
+          tabindex="0"
+        >
+          <h3>Datos personales</h3>
+
+          <!-- seleccion de imagen -->
+          <div class="mb-3">
+            <label for="formFileMultiple" class="form-label">
+              Foto de perfil
+            </label>
+            <div class="contenedorFoto mb-4">
+              <img src="{{ persona.imgPerfil }}" alt="" />
+            </div>
+            <!-- <input
+              class="form-control mb-4"
+              type="file"
+              id="formFileMultiple"
+              multiple
+            /> -->
+            <div class="d-flex flex-row w-50">
+              <button type="button" class="btn btn-primary me-3 mb-3">
+                Cambiar
+              </button>
+              <button type="button" class="btn btn-primary mb-3">
+                Cancelar
+              </button>
+            </div>
+          </div>
+
+          <!-- =====CAMBIAR NOMBRE==== -->
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input
+              class="form-control mb-2"
+              type="text"
+              id="nombre"
+              [value]="persona.nombre"
+              disabled
+            />
+
+            <div class="d-flex flex-row w-50">
+              <button type="button" class="btn btn-primary me-5 mb-3">
+                Editar
+              </button>
+              <button type="button" class="btn btn-primary me-5 mb-3">
+                Guardar
+              </button>
+              <button type="button" class="btn btn-primary mb-3">
+                Cancelar
+              </button>
+            </div>
+          </div>
+
+          <!-- =====CAMBIAR APELLIDO==== -->
+          <div class="mb-3">
+            <label for="apellido" class="form-label">Apellido</label>
+            <input
+              class="form-control mb-2"
+              type="text"
+              id="apellido"
+              [value]="persona.apellido"
+              disabled
+            />
+            <div class="d-flex flex-row w-50">
+              <button type="button" class="btn btn-primary me-5 mb-3">
+                Editar
+              </button>
+              <button type="button" class="btn btn-primary me-5 mb-3">
+                Guardar
+              </button>
+              <button type="button" class="btn btn-primary mb-3">
+                Cancelar
+              </button>
+            </div>
+          </div>
+
+          <!-- =====CAMBIAR PROFESION==== -->
+          <div class="mb-3">
+            <label for="profesion" class="form-label">Profesion</label>
+            <input
+              class="form-control mb-2"
+              type="text"
+              id="profesion"
+              [value]="persona.profesion"
+              disabled
+            />
+            <div class="d-flex flex-row w-50">
+              <button type="button" class="btn btn-primary me-5 mb-3">
+                Editar
+              </button>
+              <button type="button" class="btn btn-primary me-5 mb-3">
+                Guardar
+              </button>
+              <button type="button" class="btn btn-primary mb-3">
+                Cancelar
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!---------------------->
+        <!-------ABOUT ME------->
+        <!---------------------->
+        <div
+          class="tab-pane fade"
+          id="v-pills-about-me"
+          role="tabpanel"
+          aria-labelledby="v-pills-about-me-tab"
+          tabindex="0"
+        >
+          <!-- cambio de about me -->
+          <h3>About me</h3>
+          <div class="mb-3">
+            <textarea
+              class="form-control textarea mb-2"
+              id="exampleFormControlTextarea1"
+              cols="20"
+              rows="10"
+              id="texto"
+              name="texto"
+              [value]="persona.descripcion"
+              disabled
+            >
+            </textarea>
+            <div class="d-flex flex-row w-50">
+              <button type="button" class="btn btn-primary me-5 mb-3">
+                Editar
+              </button>
+              <button type="button" class="btn btn-primary me-5 mb-3">
+                Guardar
+              </button>
+              <button type="button" class="btn btn-primary mb-3">
+                Cancelar
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!--------------------------------->
+        <!-------EXPERIENCIA LABORAL------->
+        <!--------------------------------->
+        <div
+          class="tab-pane fade"
+          id="v-pills-experiencia-laboral"
+          role="tabpanel"
+          aria-labelledby="v-pills-experiencia-laboral-tab"
+          tabindex="0"
+        >
+          <h3>Experiencia laboral</h3>
+          <div class="mb-3" *ngFor="let exp of experiencias">
+            <!-- CARD -->
+            <div class="content-img mb-4 w-50">
+              <p class="subtitulo">Imagen ilustrativa</p>
+              <img
+                [src]="exp.imgTrabajo"
+                class="card-img-top"
+                alt="imagen ilustrativa del empleo"
+              />
+            </div>
+
+            <div class="d-flex flex-row w-50">
+              <button type="button" class="btn btn-primary me-3 mb-3">
+                Cambiar
+              </button>
+              <button type="button" class="btn btn-primary mb-3">
+                Cancelar
+              </button>
+            </div>
+
+            <div class="mb-3">
+              <label for="formFileMultiple" class="form-label">Empleo</label>
+
+              <!--======================================================-->
+              <!-- ====================== PUESTO =======================-->
+              <!--======================================================-->
+              <input
+                class="form-control mb-2"
+                type="text"
+                id="formFileMultiple"
+                [value]="exp.puesto"
+                disabled
+              />
+
+              <!--======================================================-->
+              <!-- ==================== DESCRIPCION ====================-->
+              <!--======================================================-->
+              <div class="mb-3">
+                <label for="desc-emp" class="form-label">Descripcion</label>
+                <textarea
+                  class="form-control mb-2"
+                  type="text"
+                  id="desc-emp"
+                  [value]="exp.descripcionPuesto"
+                  disabled
+                >
+                </textarea>
+
+                <!--======================================================-->
+                <!-- ====================== TIEMPO =======================-->
+                <!--======================================================-->
+                <div class="mb-3">
+                  <div class="d-flex contenedor-fechas mb-3">
+                    <label for="empleo-inicio" class="form-label"
+                      >Desde
+                      <input
+                        class="form-control mb-2"
+                        type="date"
+                        id="empleo-inicio"
+                        [value]="exp.fechaInicio"
+                        disabled
+                      />
+                    </label>
+                    <label for="empleo-fin" class="form-label"
+                      >Hasta
+                      <input
+                        class="form-control mb-2"
+                        type="date"
+                        id="empleo-fin"
+                        [value]="exp.fechaFin"
+                        disabled
+                      />
+                    </label>
+                  </div>
+                  <!-- ACTUALIDAD -->
+                  <div>
+                    <label for="empleo-actual" class="form-label"
+                      >Actualidad
+
+                      <input
+                        class="mb-2"
+                        id="empleo-actual"
+                        name="empleo-actual"
+                        type="radio"
+                      />
+                    </label>
+                  </div>
+                </div>
+
+                <!--======================================================-->
+                <!-- ============= EDITAR, GUARDAR, CANCELAR =============-->
+                <!--======================================================-->
+                <div class="d-flex flex-row w-50">
+                  <button type="button" class="btn btn-primary me-5 mb-3">
+                    Editar
+                  </button>
+                  <button type="button" class="btn btn-primary me-5 mb-3">
+                    Guardar
+                  </button>
+                  <button type="button" class="btn btn-primary mb-3">
+                    Cancelar
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <hr />
+          </div>
+
+          <div class="agregar w-100 d-flex justify-content-center">
+            <button
+              type="button"
+              class="agregar btn btn-primary"
+              title="agregar"
+            >
+              <i class="fa-solid fa-plus"></i>
+            </button>
+          </div>
+        </div>
+
+        <!------------------------------>
+        <!-------EDUCACION FORMAL------->
+        <!------------------------------>
+        <div
+          class="tab-pane fade"
+          id="v-pills-educacion"
+          role="tabpanel"
+          aria-labelledby="v-pills-educacion-tab"
+          tabindex="0"
+        >
+          <!-- cambio de educacion -->
+          <h3>Educacion Formal</h3>
+
+          <div class="mb-3" *ngFor="let edu of educaciones">
+            <!--===========================-->
+            <!--======EDICION IMAGEN ======-->
+            <!--===========================-->
+            <div class="content-img mb-4 w-50">
+              <p class="subtitulo">Imagen ilustrativa</p>
+              <img
+                [src]="edu.imgEdu"
+                class="card-img-top"
+                alt="imagen ilustrativa del empleo"
+              />
+            </div>
+
+            <!--================================-->
+            <!--======EDICION INSTITUCION ======-->
+            <!--================================-->
+            <label for="titulo-sec" class="form-label">Institucion</label>
+            <input
+              class="form-control mb-2"
+              type="text"
+              id="titulo-sec"
+              [value]="edu.institucion"
+              disabled
+            />
+            <!--===========================-->
+            <!--======EDICION TITULO ======-->
+            <!--===========================-->
+            <div class="mb-3">
+              <label for="estudios-sec" class="form-label">Titulo</label>
+              <input
+                class="form-control mb-2"
+                type="text"
+                id="estudios-sec"
+                [value]="edu.titulo"
+                disabled
+              />
+            </div>
+
+            <!--===========================-->
+            <!--======EDICION TIEMPO ======-->
+            <!--===========================-->
+            <div class="mb-3">
+              <div class="d-flex contenedor-fechas">
+                <label for="estudios-sec-inicio" class="form-label"
+                  >Desde
+                  <input
+                    class="form-control mb-2"
+                    type="date"
+                    id="estudios-sec-inicio"
+                    [value]="edu.fechaInicio"
+                    disabled
+                  />
+                </label>
+                <label for="estudios-sec-fin" class="form-label"
+                  >Hasta
+                  <input
+                    class="form-control mb-2"
+                    type="date"
+                    id="estudios-sec-fin"
+                    [value]="edu.fechaFin"
+                    disabled
+                  />
+                </label>
+              </div>
+
+              <!-- EN CURSO -->
+              <div>
+                <label for="cursando-secu" class="form-label"
+                  >En curso
+                  <input
+                    class="mb-2"
+                    id="cursando-secu"
+                    name="estudios-formal"
+                    type="radio"
+                  />
+                </label>
+              </div>
+
+              <!-- EGRESADO -->
+              <div>
+                <label for="egresado-secu" class="form-label"
+                  >Egresado
+                  <input
+                    class="mb-2"
+                    id="egresado-secu"
+                    name="estudios-formal"
+                    type="radio"
+                  />
+                </label>
+              </div>
+
+              <!-- ABANDONADO -->
+              <div>
+                <label for="abandonado-secu" class="form-label"
+                  >Abandonado
+                  <input
+                    class="mb-2"
+                    id="abandonado-secu"
+                    name="estudios-formal"
+                    type="radio"
+                  />
+                </label>
+              </div>
+            </div>
+
+            <!--======================================-->
+            <!--======EDITAR, GUARDAR, CANCELAR ======-->
+            <!--======================================-->
+            <div class="d-flex flex-row w-50">
+              <button type="button" class="btn btn-primary me-5 mb-3">
+                Editar
+              </button>
+              <button type="button" class="btn btn-primary me-5 mb-3">
+                Guardar
+              </button>
+              <button type="button" class="btn btn-primary mb-3">
+                Cancelar
+              </button>
+            </div>
+            <hr />
+          </div>
+
+          <div class="agregar w-100 d-flex justify-content-center">
+            <button
+              type="button"
+              class="agregar btn btn-primary"
+              title="agregar"
+            >
+              <i class="fa-solid fa-plus"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-------------------------------------->
+        <!-------EDUCACION COMPLEMENTARIA------->
+        <!-------------------------------------->
+        <div
+          class="tab-pane fade"
+          id="v-pills-educacion-complementaria"
+          role="tabpanel"
+          aria-labelledby="v-pills-educacion-complementaria-tab"
+          tabindex="0"
+        >
+          <h3>Educacion complementaria</h3>
+          <div class="mb-3" *ngFor="let curso of cursos">
+            <div class="content-img mb-4 w-50">
+              <p class="subtitulo">Imagen ilustrativa</p>
+              <img
+                [src]="curso.imgCurso"
+                class="card-img-top"
+                alt="imagen ilustrativa del empleo"
+              />
+            </div>
+
+            <!-- titulo -->
+            <label for="titulo-curso" class="form-label">Titulo</label>
+            <input
+              class="form-control mb-2"
+              type="text"
+              id="titulo-curso"
+              [value]="curso.titulo"
+            />
+
+            <!-- descripcion -->
+            <div class="mb-3">
+              <label for="cursos" class="form-label">Descripcion</label>
+              <textarea
+                class="form-control mb-2"
+                type="text"
+                id="cursos"
+                [value]="curso.descripcion"
+              ></textarea>
+            </div>
+
+            <!-- link -->
+            <div class="mb-3">
+              <label for="cursos" class="form-label"
+                >Pagina de la institucion</label
+              >
+              <input
+                class="form-control mb-2"
+                type="text"
+                id="cursos"
+                [value]="curso.link"
+              />
+            </div>
+
+            <div class="mb-3">
+              <div class="d-flex flex-row w-50">
+                <button type="button" class="btn btn-primary me-5 mb-3">
+                  Editar
+                </button>
+                <button type="button" class="btn btn-primary me-5 mb-3">
+                  Guardar
+                </button>
+                <button type="button" class="btn btn-primary mb-3">
+                  Cancelar
+                </button>
+              </div>
+            </div>
+
+            <hr />
+          </div>
+
+          <div class="agregar w-100 d-flex justify-content-center">
+            <button
+              type="button"
+              class="agregar btn btn-primary"
+              title="agregar"
+            >
+              <i class="fa-solid fa-plus"></i>
+            </button>
+          </div>
+        </div>
+
+        <!------------------------->
+        <!-------HARD SKILLS------->
+        <!------------------------->
+        <div
+          class="tab-pane fade"
+          id="v-pills-hard-skills"
+          role="tabpanel"
+          aria-labelledby="v-pills-hard-skills-tab"
+          tabindex="0"
+        >
+          <h3>Hard Skills</h3>
+
+          <div class="mb-3" *ngFor="let hD of habilidadesD">
+            <!-- CARD -->
+            <div class="content-img mb-4 w-50">
+              <p class="subtitulo">Icono tecnologia</p>
+              <i
+                class="me-1 tec mb-2 {{ hD.iconoTecnologia }} fs-2"
+                [ngStyle]="{ color: hD.colorIcono }"
+              >
+              </i>
+
+              <div class="mb-4">
+                <p class="subtitulo">Color del icono</p>
+                <input
+                  class="form-control"
+                  type="text"
+                  [value]="hD.colorIcono"
+                />
+              </div>
+
+              <div class="mb-4">
+                <p class="subtitulo">Tecnologia</p>
+                <input
+                  class="form-control"
+                  type="text"
+                  [value]="hD.nombreTecnologia"
+                />
+              </div>
+
+              <div class="mb-4">
+                <p class="subtitulo">Barra de porcentaje</p>
+                <div class="rango">
+                  <input
+                    type="number"
+                    min="0"
+                    max="100"
+                    class="form-control range w-75"
+                    id="rango"
+                    [value]="hD.porcentaje"
+                    [ngStyle]="{
+                      width: hD.porcentaje + '%',
+                      backgroundColor: hD.colorBarra
+                    }"
+                    placeholder="Ingrese un numero entre 0 y 100"
+                  />
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <p class="subtitulo">Color de barra de porcentaje</p>
+                <input
+                  class="form-control"
+                  type="text"
+                  [value]="hD.colorIcono"
+                  [ngStyle]="{
+                    backgroundColor: hD.colorBarra
+                  }"
+                />
+              </div>
+            </div>
+
+            <div class="d-flex flex-row w-50">
+              <button type="button" class="btn btn-primary me-3 mb-3">
+                Cambiar
+              </button>
+              <button type="button" class="btn btn-primary mb-3">
+                Cancelar
+              </button>
+            </div>
+            <hr />
+          </div>
+
+          <div class="agregar w-100 d-flex justify-content-center">
+            <button type="button" class="agregar btn btn-primary">
+              <i class="fa-solid fa-plus"></i>
+            </button>
+          </div>
+        </div>
+
+        <!------------------------->
+        <!-------SOFT SKILLS------->
+        <!------------------------->
+        <div
+          class="tab-pane fade"
+          id="v-pills-soft-skills"
+          role="tabpanel"
+          aria-labelledby="v-pills-soft-skills-tab"
+          tabindex="0"
+        >
+          <h3>Soft Skills</h3>
+          <div class="mb-3" *ngFor="let hB of habilidadesB">
+            <!-- CARD -->
+            <div class="content-img mb-4 w-50">
+              <p class="subtitulo">Icono de habilidad</p>
+              <i
+                class="me-1 tec mb-2 {{ hB.iconoHabilidad }} fs-2"
+                [ngStyle]="{ color: hB.colorIcono }"
+              >
+              </i>
+
+              <div class="mb-4">
+                <p class="subtitulo">Color del icono</p>
+                <input
+                  class="form-control"
+                  type="text"
+                  [value]="hB.colorIcono"
+                  [ngStyle]="{
+                    backgroundColor: hB.colorIcono
+                  }"
+                />
+              </div>
+
+              <div class="mb-4">
+                <p class="subtitulo">Nombre habilidad</p>
+                <input
+                  class="form-control"
+                  type="text"
+                  [value]="hB.nombreHabilidad"
+                />
+              </div>
+
+              <div class="mb-4">
+                <p class="subtitulo">Barra de porcentaje</p>
+                <div
+                  class="d-flex justify-content-around rango align-items-center"
+                >
+                  <input
+                    type="range"
+                    class="range w-75"
+                    id="rango"
+                    [value]="hB.porcentaje"
+                    [ngStyle]="{
+                      width: hB.porcentaje + '%',
+                      backgroundColor: hB.colorBarra
+                    }"
+                  />
+                  <span class="rango">+3 años</span>
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <p class="subtitulo">Color de barra de porcentaje</p>
+                <input
+                  class="form-control"
+                  type="text"
+                  [value]="hB.colorIcono"
+                  [ngStyle]="{
+                    backgroundColor: hB.colorBarra
+                  }"
+                />
+              </div>
+              <hr />
+            </div>
+
+            <div class="d-flex flex-row w-50">
+              <button type="button" class="btn btn-primary me-3 mb-3">
+                Cambiar
+              </button>
+              <button type="button" class="btn btn-primary mb-3">
+                Cancelar
+              </button>
+            </div>
+          </div>
+
+          <div class="agregar w-100 d-flex justify-content-center">
+            <button type="button" class="agregar btn btn-primary">
+              <i class="fa-solid fa-plus"></i>
+            </button>
+          </div>
+        </div>
+
+        <!------------------------->
+        <!--------PROYECTOS-------->
+        <!------------------------->
+        <div
+          class="tab-pane fade"
+          id="v-pills-proyectos"
+          role="tabpanel"
+          aria-labelledby="v-pills-proyectos-tab"
+          tabindex="0"
+        >
+          <h3>Proyectos</h3>
+          <div class="mb-3" *ngFor="let proyecto of proyectos">
+            <!-- Titulo proyecto -->
+            <div class="mb-3">
+              <p class="subtitulo">Titulo del proyecto</p>
+              <input
+                class="form-control mb-2"
+                type="text"
+                id="titulo-proyecto"
+                [value]="proyecto.titulo"
+              />
+            </div>
+
+            <div class="mb-3">
+              <p class="subtitulo">Descripcion del proyecto</p>
+              <textarea
+                class="form-control mb-2"
+                type="text"
+                id="titulo-proyecto"
+                [value]="proyecto.descripcion"
+              ></textarea>
+            </div>
+
+            <!-- Tecnologias utilizadas -->
+            <div class="mb-3">
+              <p class="subtitulo">Tecnologias utilizadas</p>
+              <div>
+                <div class="w-25">
+                  <i
+                    class="me-1 mb-2 tec mb-1 {{ proyecto.iconTec1 }} fs-2"
+                    [ngStyle]="{ color: proyecto.colorIcon1 }"
+                  ></i>
+                  <p class="subtitulo">Icono fab fa</p>
+                  <input
+                    class="form-control mb-2"
+                    type="text"
+                    [value]="proyecto.iconTec1"
+                  />
+                  <p class="subtitulo">Color de icono</p>
+                  <input
+                    class="form-control mb-2"
+                    type="text"
+                    [value]="proyecto.colorIcon1"
+                    [ngStyle]="{ backgroundColor: proyecto.colorIcon1 }"
+                  />
+                  <i
+                    class="me-1 mb-2 tec mb-1 {{ proyecto.iconTec2 }} fs-2"
+                    [ngStyle]="{ color: proyecto.colorIcon2 }"
+                  ></i>
+                  <p class="subtitulo">Icono fab fa</p>
+                  <input
+                    class="form-control mb-2"
+                    type="text"
+                    [value]="proyecto.iconTec2"
+                  />
+                  <p class="subtitulo">Color de icono</p>
+                  <input
+                    class="form-control mb-2"
+                    type="text"
+                    [value]="proyecto.colorIcon2"
+                    [ngStyle]="{ backgroundColor: proyecto.colorIcon2 }"
+                  />
+
+                  <i
+                    class="me-1 mb-2 tec mb-1 {{ proyecto.iconTec3 }} fs-2"
+                    [ngStyle]="{ color: proyecto.colorIcon3 }"
+                  ></i>
+                  <p class="subtitulo">Icono fab fa</p>
+                  <input
+                    class="form-control mb-2"
+                    type="text"
+                    [value]="proyecto.iconTec3"
+                  />
+                  <p class="subtitulo">Color de icono</p>
+                  <input
+                    class="form-control mb-2"
+                    type="text"
+                    [value]="proyecto.colorIcon3"
+                    [ngStyle]="{ backgroundColor: proyecto.colorIcon3 }"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex flex-row w-50">
+              <button type="button" class="btn btn-primary me-5 mb-3">
+                Editar
+              </button>
+              <button type="button" class="btn btn-primary me-5 mb-3">
+                Guardar
+              </button>
+              <button type="button" class="btn btn-primary mb-3">
+                Cancelar
+              </button>
+            </div>
+            <hr />
+          </div>
+
+          <div class="agregar w-100 d-flex justify-content-center">
+            <button type="button" class="agregar btn btn-primary">
+              <i class="fa-solid fa-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
+</main>

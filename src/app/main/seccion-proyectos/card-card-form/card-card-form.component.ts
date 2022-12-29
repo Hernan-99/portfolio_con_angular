@@ -1,5 +1,7 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { PrincipalService } from 'src/app/services/principal.service';
+import { Proyectos } from 'src/app/models/proyectos';
+import { ProyectosService } from 'src/app/services/proyectos.service';
 
 @Component({
   selector: 'app-card-card-form',
@@ -7,20 +9,21 @@ import { PrincipalService } from 'src/app/services/principal.service';
   styleUrls: ['./card-card-form.component.css'],
 })
 export class CardCardFormComponent implements OnInit {
-  titulo: string = '';
-  descripcion: string = '';
-  icono1: any = '';
-  icono2: any = '';
-  icono3: any = '';
-  constructor(private principalService: PrincipalService) {}
+  // public proyectos: Proyectos[] = [];
+  constructor() {}
 
   ngOnInit(): void {
-    this.principalService.getDatos().subscribe((principal) => {
-      this.titulo = principal.proyectos[1].titulo;
-      this.descripcion = principal.proyectos[1].descripcion;
-      this.icono1 = principal.proyectos[1].icono1;
-      this.icono2 = principal.proyectos[1].icono2;
-      this.icono3 = principal.proyectos[1].icono3;
-    });
+    // this.getProyectos();
   }
+
+  // public getProyectos(): void {
+  //   this.datosProyectos.getProyectos().subscribe({
+  //     next: (rta: Proyectos[]) => {
+  //       this.proyectos = rta;
+  //     },
+  //     error: (err: HttpErrorResponse) => {
+  //       alert(err.message);
+  //     },
+  //   });
+  // }
 }

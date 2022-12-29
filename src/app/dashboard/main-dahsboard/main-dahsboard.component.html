@@ -1,6 +1,6 @@
 <!-- AGREGAR BOTONES DE CANCELAR -->
 
-<main class="container-fluid">
+<main class="container-fluid" *ngIf="persona">
   <section class="row dashboard">
     <!-- ASIDE - BARRA DE ADMINISTRACION -->
     <article class="col-md-3 col-sm-6">
@@ -149,14 +149,41 @@
             <label for="formFileMultiple" class="form-label">
               Foto de perfil
             </label>
-            <input
+            <div class="contenedorFoto mb-4">
+              <img src="{{ persona.imgPerfil }}" alt="" />
+            </div>
+            <!-- <input
               class="form-control mb-4"
               type="file"
               id="formFileMultiple"
               multiple
-            />
-            <div class="d-flex flex-row w-50 justify-content-between">
+            /> -->
+            <div class="d-flex flex-row w-50">
               <button type="button" class="btn btn-primary me-3 mb-3">
+                Cambiar
+              </button>
+              <button type="button" class="btn btn-primary mb-3">
+                Cancelar
+              </button>
+            </div>
+          </div>
+
+          <!-- =====CAMBIAR NOMBRE==== -->
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input
+              class="form-control mb-2"
+              type="text"
+              id="nombre"
+              [value]="persona.nombre"
+              disabled
+            />
+
+            <div class="d-flex flex-row w-50">
+              <button type="button" class="btn btn-primary me-5 mb-3">
+                Editar
+              </button>
+              <button type="button" class="btn btn-primary me-5 mb-3">
                 Guardar
               </button>
               <button type="button" class="btn btn-primary mb-3">
@@ -165,11 +192,43 @@
             </div>
           </div>
 
-          <!-- cambio de nombre -->
+          <!-- =====CAMBIAR APELLIDO==== -->
           <div class="mb-3">
-            <label for="nombre" class="form-label">Nombre y apellido</label>
-            <input class="form-control mb-2" type="text" id="nombre" />
-            <div class="d-flex flex-row w-50 justify-content-between">
+            <label for="apellido" class="form-label">Apellido</label>
+            <input
+              class="form-control mb-2"
+              type="text"
+              id="apellido"
+              [value]="persona.apellido"
+              disabled
+            />
+            <div class="d-flex flex-row w-50">
+              <button type="button" class="btn btn-primary me-5 mb-3">
+                Editar
+              </button>
+              <button type="button" class="btn btn-primary me-5 mb-3">
+                Guardar
+              </button>
+              <button type="button" class="btn btn-primary mb-3">
+                Cancelar
+              </button>
+            </div>
+          </div>
+
+          <!-- =====CAMBIAR PROFESION==== -->
+          <div class="mb-3">
+            <label for="profesion" class="form-label">Profesion</label>
+            <input
+              class="form-control mb-2"
+              type="text"
+              id="profesion"
+              [value]="persona.profesion"
+              disabled
+            />
+            <div class="d-flex flex-row w-50">
+              <button type="button" class="btn btn-primary me-5 mb-3">
+                Editar
+              </button>
               <button type="button" class="btn btn-primary me-5 mb-3">
                 Guardar
               </button>
@@ -200,9 +259,14 @@
               rows="10"
               id="texto"
               name="texto"
+              [value]="persona.descripcion"
+              disabled
             >
             </textarea>
-            <div class="d-flex flex-row w-50 justify-content-between">
+            <div class="d-flex flex-row w-50">
+              <button type="button" class="btn btn-primary me-5 mb-3">
+                Editar
+              </button>
               <button type="button" class="btn btn-primary me-5 mb-3">
                 Guardar
               </button>
@@ -224,24 +288,121 @@
           tabindex="0"
         >
           <h3>Experiencia laboral</h3>
-          <div class="mb-3">
-            <label for="formFileMultiple" class="form-label">Cursos</label>
-            <input
-              class="form-control mb-2"
-              type="text"
-              id="formFileMultiple"
-            />
-            <div class="d-flex flex-row w-50 justify-content-between">
-              <button type="button" class="btn btn-primary me-5 mb-3">
-                Guardar
+          <div class="mb-3" *ngFor="let exp of experiencias">
+            <!-- CARD -->
+            <div class="content-img mb-4 w-50">
+              <p class="subtitulo">Imagen ilustrativa</p>
+              <img
+                [src]="exp.imgTrabajo"
+                class="card-img-top"
+                alt="imagen ilustrativa del empleo"
+              />
+            </div>
+
+            <div class="d-flex flex-row w-50">
+              <button type="button" class="btn btn-primary me-3 mb-3">
+                Cambiar
               </button>
               <button type="button" class="btn btn-primary mb-3">
                 Cancelar
               </button>
             </div>
+
+            <div class="mb-3">
+              <label for="formFileMultiple" class="form-label">Empleo</label>
+
+              <!--======================================================-->
+              <!-- ====================== PUESTO =======================-->
+              <!--======================================================-->
+              <input
+                class="form-control mb-2"
+                type="text"
+                id="formFileMultiple"
+                [value]="exp.puesto"
+                disabled
+              />
+
+              <!--======================================================-->
+              <!-- ==================== DESCRIPCION ====================-->
+              <!--======================================================-->
+              <div class="mb-3">
+                <label for="desc-emp" class="form-label">Descripcion</label>
+                <textarea
+                  class="form-control mb-2"
+                  type="text"
+                  id="desc-emp"
+                  [value]="exp.descripcionPuesto"
+                  disabled
+                >
+                </textarea>
+
+                <!--======================================================-->
+                <!-- ====================== TIEMPO =======================-->
+                <!--======================================================-->
+                <div class="mb-3">
+                  <div class="d-flex contenedor-fechas mb-3">
+                    <label for="empleo-inicio" class="form-label"
+                      >Desde
+                      <input
+                        class="form-control mb-2"
+                        type="date"
+                        id="empleo-inicio"
+                        [value]="exp.fechaInicio"
+                        disabled
+                      />
+                    </label>
+                    <label for="empleo-fin" class="form-label"
+                      >Hasta
+                      <input
+                        class="form-control mb-2"
+                        type="date"
+                        id="empleo-fin"
+                        [value]="exp.fechaFin"
+                        disabled
+                      />
+                    </label>
+                  </div>
+                  <!-- ACTUALIDAD -->
+                  <div>
+                    <label for="empleo-actual" class="form-label"
+                      >Actualidad
+
+                      <input
+                        class="mb-2"
+                        id="empleo-actual"
+                        name="empleo-actual"
+                        type="radio"
+                      />
+                    </label>
+                  </div>
+                </div>
+
+                <!--======================================================-->
+                <!-- ============= EDITAR, GUARDAR, CANCELAR =============-->
+                <!--======================================================-->
+                <div class="d-flex flex-row w-50">
+                  <button type="button" class="btn btn-primary me-5 mb-3">
+                    Editar
+                  </button>
+                  <button type="button" class="btn btn-primary me-5 mb-3">
+                    Guardar
+                  </button>
+                  <button type="button" class="btn btn-primary mb-3">
+                    Cancelar
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <hr />
           </div>
+
           <div class="agregar w-100 d-flex justify-content-center">
-            <button type="button" class="agregar btn btn-primary">
+            <button
+              type="button"
+              class="agregar btn btn-primary"
+              title="agregar"
+            >
               <i class="fa-solid fa-plus"></i>
             </button>
           </div>
@@ -258,13 +419,120 @@
           tabindex="0"
         >
           <!-- cambio de educacion -->
-          <h3>Educacion Secundaria</h3>
+          <h3>Educacion Formal</h3>
 
-          <!-- titulo -->
-          <div class="mb-3">
-            <label for="titulo-sec" class="form-label">Titulo</label>
-            <input class="form-control mb-2" type="text" id="titulo-sec" />
-            <div class="d-flex flex-row w-50 justify-content-between">
+          <div class="mb-3" *ngFor="let edu of educaciones">
+            <!--===========================-->
+            <!--======EDICION IMAGEN ======-->
+            <!--===========================-->
+            <div class="content-img mb-4 w-50">
+              <p class="subtitulo">Imagen ilustrativa</p>
+              <img
+                [src]="edu.imgEdu"
+                class="card-img-top"
+                alt="imagen ilustrativa del empleo"
+              />
+            </div>
+
+            <!--================================-->
+            <!--======EDICION INSTITUCION ======-->
+            <!--================================-->
+            <label for="titulo-sec" class="form-label">Institucion</label>
+            <input
+              class="form-control mb-2"
+              type="text"
+              id="titulo-sec"
+              [value]="edu.institucion"
+              disabled
+            />
+            <!--===========================-->
+            <!--======EDICION TITULO ======-->
+            <!--===========================-->
+            <div class="mb-3">
+              <label for="estudios-sec" class="form-label">Titulo</label>
+              <input
+                class="form-control mb-2"
+                type="text"
+                id="estudios-sec"
+                [value]="edu.titulo"
+                disabled
+              />
+            </div>
+
+            <!--===========================-->
+            <!--======EDICION TIEMPO ======-->
+            <!--===========================-->
+            <div class="mb-3">
+              <div class="d-flex contenedor-fechas">
+                <label for="estudios-sec-inicio" class="form-label"
+                  >Desde
+                  <input
+                    class="form-control mb-2"
+                    type="date"
+                    id="estudios-sec-inicio"
+                    [value]="edu.fechaInicio"
+                    disabled
+                  />
+                </label>
+                <label for="estudios-sec-fin" class="form-label"
+                  >Hasta
+                  <input
+                    class="form-control mb-2"
+                    type="date"
+                    id="estudios-sec-fin"
+                    [value]="edu.fechaFin"
+                    disabled
+                  />
+                </label>
+              </div>
+
+              <!-- EN CURSO -->
+              <div>
+                <label for="cursando-secu" class="form-label"
+                  >En curso
+                  <input
+                    class="mb-2"
+                    id="cursando-secu"
+                    name="estudios-formal"
+                    type="radio"
+                  />
+                </label>
+              </div>
+
+              <!-- EGRESADO -->
+              <div>
+                <label for="egresado-secu" class="form-label"
+                  >Egresado
+                  <input
+                    class="mb-2"
+                    id="egresado-secu"
+                    name="estudios-formal"
+                    type="radio"
+                  />
+                </label>
+              </div>
+
+              <!-- ABANDONADO -->
+              <div>
+                <label for="abandonado-secu" class="form-label"
+                  >Abandonado
+                  <input
+                    class="mb-2"
+                    id="abandonado-secu"
+                    name="estudios-formal"
+                    type="radio"
+                  />
+                </label>
+              </div>
+            </div>
+
+            <!--======================================-->
+            <!--======EDITAR, GUARDAR, CANCELAR ======-->
+            <!--======================================-->
+            <div class="d-flex flex-row w-50">
+              <button type="button" class="btn btn-primary me-5 mb-3">
+                Editar
+              </button>
               <button type="button" class="btn btn-primary me-5 mb-3">
                 Guardar
               </button>
@@ -272,178 +540,17 @@
                 Cancelar
               </button>
             </div>
+            <hr />
           </div>
 
-          <!-- colegio -->
-          <div class="mb-3">
-            <label for="estudios-sec" class="form-label">Colegio</label>
-            <input class="form-control mb-2" type="text" id="estudios-sec" />
-            <div class="d-flex flex-row w-50 justify-content-between">
-              <button type="button" class="btn btn-primary me-5 mb-3">
-                Guardar
-              </button>
-              <button type="button" class="btn btn-primary mb-3">
-                Cancelar
-              </button>
-            </div>
-          </div>
-
-          <!-- tiempo -->
-          <div class="mb-3">
-            <div class="d-flex contenedor-fechas">
-              <label for="estudios-sec-inicio" class="form-label"
-                >Desde
-                <input
-                  class="form-control mb-2"
-                  type="date"
-                  id="estudios-sec-inicio"
-                />
-              </label>
-              <label for="estudios-sec-fin" class="form-label"
-                >Hasta
-                <input
-                  class="form-control mb-2"
-                  type="date"
-                  id="estudios-sec-fin"
-                />
-              </label>
-            </div>
-
-            <!-- EN CURSO -->
-            <div>
-              <label for="cursando-secu" class="form-label">En curso</label>
-              <input
-                class="mb-2"
-                id="cursando-secu"
-                name="estudios-formal"
-                type="radio"
-              />
-            </div>
-
-            <!-- EGRESADO -->
-            <div>
-              <label for="egresado-secu" class="form-label">Egresado</label>
-              <input
-                class="mb-2"
-                id="egresado-secu"
-                name="estudios-formal"
-                type="radio"
-              />
-            </div>
-
-            <!-- ABANDONADO -->
-            <div>
-              <label for="abandonado-secu" class="form-label">Abandonado</label>
-              <input
-                class="mb-2"
-                id="abandonado-secu"
-                name="estudios-formal"
-                type="radio"
-              />
-            </div>
-
-            <div class="d-flex flex-row w-50 justify-content-between">
-              <button type="button" class="btn btn-primary me-5 mb-3">
-                Guardar
-              </button>
-              <button type="button" class="btn btn-primary mb-3">
-                Cancelar
-              </button>
-            </div>
-          </div>
-
-          <!-- titulo -->
-          <h3>Educacion Universitaria</h3>
-          <div class="mb-3">
-            <!-- titulo -->
-            <label for="titulo-uni" class="form-label">Titulo</label>
-            <input class="form-control mb-2" type="text" id="titulo-uni" />
-            <div class="d-flex flex-row w-50 justify-content-between">
-              <button type="button" class="btn btn-primary me-5 mb-3">
-                Guardar
-              </button>
-              <button type="button" class="btn btn-primary mb-3">
-                Cancelar
-              </button>
-            </div>
-          </div>
-
-          <!-- universidad -->
-          <div class="mb-3">
-            <label for="estudios-uni" class="form-label">Universidad</label>
-            <input class="form-control mb-2" type="text" id="estudios-uni" />
-            <div class="d-flex flex-row w-50 justify-content-between">
-              <button type="button" class="btn btn-primary me-5 mb-3">
-                Guardar
-              </button>
-              <button type="button" class="btn btn-primary mb-3">
-                Cancelar
-              </button>
-            </div>
-          </div>
-
-          <!-- tiempo -->
-          <div class="mb-3">
-            <div class="d-flex contenedor-fechas">
-              <label for="estudios-uni-inicio" class="form-label"
-                >Desde
-                <input
-                  class="form-control mb-2"
-                  type="date"
-                  id="estudios-uni-inicio"
-                />
-              </label>
-              <label for="estudios-uni-fin" class="form-label"
-                >Hasta
-                <input
-                  class="form-control mb-2"
-                  type="date"
-                  id="estudios-uni-fin"
-                />
-              </label>
-            </div>
-
-            <!-- CURSANDO -->
-            <div>
-              <label for="cursando-uni" class="form-label">En curso</label>
-              <input
-                class="mb-2"
-                id="cursando-uni"
-                name="estudios-uni"
-                type="radio"
-              />
-            </div>
-
-            <!-- EGRESADO -->
-            <div>
-              <label for="egresado-uni" class="form-label">Egresado</label>
-              <input
-                class="mb-2"
-                id="egresado-uni"
-                name="estudios-uni"
-                type="radio"
-              />
-            </div>
-
-            <!-- ABANDONADO -->
-            <div>
-              <label for="abandonado-uni" class="form-label">Abandonado</label>
-              <input
-                class="mb-2"
-                id="abandonado-uni"
-                name="abandonado-uni"
-                type="radio"
-              />
-            </div>
-
-            <div class="d-flex flex-row w-50 justify-content-between">
-              <button type="button" class="btn btn-primary me-5 mb-3">
-                Guardar
-              </button>
-              <button type="button" class="btn btn-primary mb-3">
-                Cancelar
-              </button>
-            </div>
+          <div class="agregar w-100 d-flex justify-content-center">
+            <button
+              type="button"
+              class="agregar btn btn-primary"
+              title="agregar"
+            >
+              <i class="fa-solid fa-plus"></i>
+            </button>
           </div>
         </div>
 
@@ -457,80 +564,55 @@
           aria-labelledby="v-pills-educacion-complementaria-tab"
           tabindex="0"
         >
-          <!-- educacion complementaria -->
           <h3>Educacion complementaria</h3>
-          <div class="mb-3">
+          <div class="mb-3" *ngFor="let curso of cursos">
+            <div class="content-img mb-4 w-50">
+              <p class="subtitulo">Imagen ilustrativa</p>
+              <img
+                [src]="curso.imgCurso"
+                class="card-img-top"
+                alt="imagen ilustrativa del empleo"
+              />
+            </div>
+
             <!-- titulo -->
             <label for="titulo-curso" class="form-label">Titulo</label>
-            <input class="form-control mb-2" type="text" id="titulo-curso" />
-            <div class="d-flex flex-row w-50 justify-content-between">
-              <button type="button" class="btn btn-primary me-5 mb-3">
-                Guardar
-              </button>
-              <button type="button" class="btn btn-primary mb-3">
-                Cancelar
-              </button>
-            </div>
-          </div>
+            <input
+              class="form-control mb-2"
+              type="text"
+              id="titulo-curso"
+              [value]="curso.titulo"
+            />
 
-          <!-- institucion -->
-          <div class="mb-3">
-            <label for="cursos" class="form-label">Institucion</label>
-            <input class="form-control mb-2" type="text" id="cursos" />
-            <div class="d-flex flex-row w-50 justify-content-between">
-              <button type="button" class="btn btn-primary me-5 mb-3">
-                Guardar
-              </button>
-              <button type="button" class="btn btn-primary mb-3">
-                Cancelar
-              </button>
-            </div>
-          </div>
-
-          <!-- tiempo -->
-          <div class="mb-3">
-            <div class="d-flex contenedor-fechas">
-              <label for="estudios-curso-inicio" class="form-label"
-                >Desde
-                <input
-                  class="form-control mb-2"
-                  type="date"
-                  id="estudios-curso-inicio"
-                />
-              </label>
-              <label for="estudios-curso-fin" class="form-label"
-                >Hasta
-                <input
-                  class="form-control mb-2"
-                  type="date"
-                  id="estudios-curso-fin"
-                />
-              </label>
-            </div>
+            <!-- descripcion -->
             <div class="mb-3">
-              <div>
-                <div>
-                  <label for="cursando-curso" class="form-label">
-                    En curso
-                    <input
-                      class="mb-2"
-                      id="cursando-curso"
-                      name="estudios-curso"
-                      type="radio"
-                    />
-                  </label>
-                </div>
-                <label for="egresado-curso" class="form-label">
-                  Egresado
-                  <input
-                    class="mb-2"
-                    id="egresado-curso"
-                    name="estudios-curso"
-                    type="radio"
-                  />
-                </label>
-              </div>
-              <div class="d-flex flex-row w-50 justify-content-between">
+              <label for="cursos" class="form-label">Descripcion</label>
+              <textarea
+                class="form-control mb-2"
+                type="text"
+                id="cursos"
+                [value]="curso.descripcion"
+              ></textarea>
+            </div>
+
+            <!-- link -->
+            <div class="mb-3">
+              <label for="cursos" class="form-label"
+                >Pagina de la institucion</label
+              >
+              <input
+                class="form-control mb-2"
+                type="text"
+                id="cursos"
+                [value]="curso.link"
+              />
+            </div>
+
+            <div class="mb-3">
+              <div class="d-flex flex-row w-50">
+                <button type="button" class="btn btn-primary me-5 mb-3">
+                  Editar
+                </button>
                 <button type="button" class="btn btn-primary me-5 mb-3">
                   Guardar
                 </button>
@@ -540,11 +622,17 @@
               </div>
             </div>
 
-            <div class="w-100 d-flex flex-column">
-              <button type="button" class="btn btn-primary">
-                <!-- <i class="fa-solid fa-plus"></i> -->Agregar
-              </button>
-            </div>
+            <hr />
+          </div>
+
+          <div class="agregar w-100 d-flex justify-content-center">
+            <button
+              type="button"
+              class="agregar btn btn-primary"
+              title="agregar"
+            >
+              <i class="fa-solid fa-plus"></i>
+            </button>
           </div>
         </div>
 
@@ -559,21 +647,78 @@
           tabindex="0"
         >
           <h3>Hard Skills</h3>
-          <div class="mb-3">
-            <input
-              class="form-control mb-2"
-              type="text"
-              id="formFileMultiple"
-            />
-            <div class="d-flex flex-row w-50 justify-content-between">
-              <button type="button" class="btn btn-primary me-5 mb-3">
-                Guardar
+
+          <div class="mb-3" *ngFor="let hD of habilidadesD">
+            <!-- CARD -->
+            <div class="content-img mb-4 w-50">
+              <p class="subtitulo">Icono tecnologia</p>
+              <i
+                class="me-1 tec mb-2 {{ hD.iconoTecnologia }} fs-2"
+                [ngStyle]="{ color: hD.colorIcono }"
+              >
+              </i>
+
+              <div class="mb-4">
+                <p class="subtitulo">Color del icono</p>
+                <input
+                  class="form-control"
+                  type="text"
+                  [value]="hD.colorIcono"
+                />
+              </div>
+
+              <div class="mb-4">
+                <p class="subtitulo">Tecnologia</p>
+                <input
+                  class="form-control"
+                  type="text"
+                  [value]="hD.nombreTecnologia"
+                />
+              </div>
+
+              <div class="mb-4">
+                <p class="subtitulo">Barra de porcentaje</p>
+                <div class="rango">
+                  <input
+                    type="number"
+                    min="0"
+                    max="100"
+                    class="form-control range w-75"
+                    id="rango"
+                    [value]="hD.porcentaje"
+                    [ngStyle]="{
+                      width: hD.porcentaje + '%',
+                      backgroundColor: hD.colorBarra
+                    }"
+                    placeholder="Ingrese un numero entre 0 y 100"
+                  />
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <p class="subtitulo">Color de barra de porcentaje</p>
+                <input
+                  class="form-control"
+                  type="text"
+                  [value]="hD.colorIcono"
+                  [ngStyle]="{
+                    backgroundColor: hD.colorBarra
+                  }"
+                />
+              </div>
+            </div>
+
+            <div class="d-flex flex-row w-50">
+              <button type="button" class="btn btn-primary me-3 mb-3">
+                Cambiar
               </button>
               <button type="button" class="btn btn-primary mb-3">
                 Cancelar
               </button>
             </div>
+            <hr />
           </div>
+
           <div class="agregar w-100 d-flex justify-content-center">
             <button type="button" class="agregar btn btn-primary">
               <i class="fa-solid fa-plus"></i>
@@ -592,14 +737,79 @@
           tabindex="0"
         >
           <h3>Soft Skills</h3>
-          <div class="mb-3">
-            <input
-              class="form-control mb-2"
-              type="text"
-              id="formFileMultiple"
-            />
-            <button type="button" class="btn btn-primary">Guardar</button>
+          <div class="mb-3" *ngFor="let hB of habilidadesB">
+            <!-- CARD -->
+            <div class="content-img mb-4 w-50">
+              <p class="subtitulo">Icono de habilidad</p>
+              <i
+                class="me-1 tec mb-2 {{ hB.iconoHabilidad }} fs-2"
+                [ngStyle]="{ color: hB.colorIcono }"
+              >
+              </i>
+
+              <div class="mb-4">
+                <p class="subtitulo">Color del icono</p>
+                <input
+                  class="form-control"
+                  type="text"
+                  [value]="hB.colorIcono"
+                  [ngStyle]="{
+                    backgroundColor: hB.colorIcono
+                  }"
+                />
+              </div>
+
+              <div class="mb-4">
+                <p class="subtitulo">Nombre habilidad</p>
+                <input
+                  class="form-control"
+                  type="text"
+                  [value]="hB.nombreHabilidad"
+                />
+              </div>
+
+              <div class="mb-4">
+                <p class="subtitulo">Barra de porcentaje</p>
+
+                <input
+                  type="number"
+                  min="0"
+                  max="100"
+                  class="form-control range w-75"
+                  id="rango"
+                  [value]="hB.porcentaje"
+                  [ngStyle]="{
+                    width: hB.porcentaje + '%',
+                    backgroundColor: hB.colorBarra
+                  }"
+                  placeholder="Ingrese un numero entre 0 y 100"
+                />
+              </div>
+
+              <div class="mb-4">
+                <p class="subtitulo">Color de barra de porcentaje</p>
+                <input
+                  class="form-control"
+                  type="text"
+                  [value]="hB.colorIcono"
+                  [ngStyle]="{
+                    backgroundColor: hB.colorBarra
+                  }"
+                />
+              </div>
+              <hr />
+            </div>
+
+            <div class="d-flex flex-row w-50">
+              <button type="button" class="btn btn-primary me-3 mb-3">
+                Cambiar
+              </button>
+              <button type="button" class="btn btn-primary mb-3">
+                Cancelar
+              </button>
+            </div>
           </div>
+
           <div class="agregar w-100 d-flex justify-content-center">
             <button type="button" class="agregar btn btn-primary">
               <i class="fa-solid fa-plus"></i>
@@ -618,47 +828,93 @@
           tabindex="0"
         >
           <h3>Proyectos</h3>
-          <div class="mb-3">
-            <label for="formFileMultiple" class="form-label">
-              Seleccionar Foto Del Proyecto
-            </label>
-            <input
-              class="form-control mb-2"
-              type="file"
-              id="formFileMultiple"
-              multiple
-            />
-            <div class="d-flex flex-row w-50 justify-content-between">
-              <button type="button" class="btn btn-primary me-5 mb-3">
-                Guardar
-              </button>
-              <button type="button" class="btn btn-primary mb-3">
-                Cancelar
-              </button>
+          <div class="mb-3" *ngFor="let proyecto of proyectos">
+            <!-- Titulo proyecto -->
+            <div class="mb-3">
+              <p class="subtitulo">Titulo del proyecto</p>
+              <input
+                class="form-control mb-2"
+                type="text"
+                id="titulo-proyecto"
+                [value]="proyecto.titulo"
+              />
             </div>
-          </div>
 
-          <!-- Titulo proyecto -->
-          <div class="mb-3">
-            <label for="titulo-proyecto" class="form-label">Titulo</label>
-            <input class="form-control mb-2" type="text" id="titulo-proyecto" />
-            <div class="d-flex flex-row w-50 justify-content-between">
-              <button type="button" class="btn btn-primary me-5 mb-3">
-                Guardar
-              </button>
-              <button type="button" class="btn btn-primary mb-3">
-                Cancelar
-              </button>
+            <div class="mb-3">
+              <p class="subtitulo">Descripcion del proyecto</p>
+              <textarea
+                class="form-control mb-2"
+                type="text"
+                id="titulo-proyecto"
+                [value]="proyecto.descripcion"
+              ></textarea>
             </div>
-          </div>
 
-          <!-- Tecnologias utilizadas -->
-          <div class="mb-3">
-            <label for="tecnologias" class="form-label"
-              >Tecnologias Utilizadas</label
-            >
-            <input class="form-control mb-2" type="text" id="tecnologias" />
-            <div class="d-flex flex-row w-50 justify-content-between">
+            <!-- Tecnologias utilizadas -->
+            <div class="mb-3">
+              <p class="subtitulo">Tecnologias utilizadas</p>
+              <div>
+                <div class="w-25">
+                  <i
+                    class="me-1 mb-2 tec mb-1 {{ proyecto.iconTec1 }} fs-2"
+                    [ngStyle]="{ color: proyecto.colorIcon1 }"
+                  ></i>
+                  <p class="subtitulo">Icono fab fa</p>
+                  <input
+                    class="form-control mb-2"
+                    type="text"
+                    [value]="proyecto.iconTec1"
+                  />
+                  <p class="subtitulo">Color de icono</p>
+                  <input
+                    class="form-control mb-2"
+                    type="text"
+                    [value]="proyecto.colorIcon1"
+                    [ngStyle]="{ backgroundColor: proyecto.colorIcon1 }"
+                  />
+                  <i
+                    class="me-1 mb-2 tec mb-1 {{ proyecto.iconTec2 }} fs-2"
+                    [ngStyle]="{ color: proyecto.colorIcon2 }"
+                  ></i>
+                  <p class="subtitulo">Icono fab fa</p>
+                  <input
+                    class="form-control mb-2"
+                    type="text"
+                    [value]="proyecto.iconTec2"
+                  />
+                  <p class="subtitulo">Color de icono</p>
+                  <input
+                    class="form-control mb-2"
+                    type="text"
+                    [value]="proyecto.colorIcon2"
+                    [ngStyle]="{ backgroundColor: proyecto.colorIcon2 }"
+                  />
+
+                  <i
+                    class="me-1 mb-2 tec mb-1 {{ proyecto.iconTec3 }} fs-2"
+                    [ngStyle]="{ color: proyecto.colorIcon3 }"
+                  ></i>
+                  <p class="subtitulo">Icono fab fa</p>
+                  <input
+                    class="form-control mb-2"
+                    type="text"
+                    [value]="proyecto.iconTec3"
+                  />
+                  <p class="subtitulo">Color de icono</p>
+                  <input
+                    class="form-control mb-2"
+                    type="text"
+                    [value]="proyecto.colorIcon3"
+                    [ngStyle]="{ backgroundColor: proyecto.colorIcon3 }"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex flex-row w-50">
+              <button type="button" class="btn btn-primary me-5 mb-3">
+                Editar
+              </button>
               <button type="button" class="btn btn-primary me-5 mb-3">
                 Guardar
               </button>
@@ -666,6 +922,7 @@
                 Cancelar
               </button>
             </div>
+            <hr />
           </div>
 
           <div class="agregar w-100 d-flex justify-content-center">

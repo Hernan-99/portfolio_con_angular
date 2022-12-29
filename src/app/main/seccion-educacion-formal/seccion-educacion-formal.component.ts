@@ -1,5 +1,7 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { PrincipalService } from 'src/app/services/principal.service';
+import { Educacion } from 'src/app/models/educacion';
+import { EducacionService } from 'src/app/services/educacion.service';
 
 @Component({
   selector: 'app-seccion-educacion-formal',
@@ -7,12 +9,21 @@ import { PrincipalService } from 'src/app/services/principal.service';
   styleUrls: ['./seccion-educacion-formal.component.css'],
 })
 export class SeccionEducacionFormalComponent implements OnInit {
-  titulo: string = '';
-  constructor(private principalService: PrincipalService) {}
+  public educaciones: Educacion[] = [];
+  constructor(private datosEdu: EducacionService) {}
 
   ngOnInit(): void {
-    this.principalService.getDatos().subscribe((principal) => {
-      this.titulo = principal.eduFormalTitulo;
+    this.getEdu();
+  }
+
+  public getEdu(): void {
+    this.datosEdu.getEducacion().subscribe({
+      next: (rta: Educacion[]) => {
+        this.educaciones = rta;
+      },
+      error: (err: HttpErrorResponse) => {
+        alert(err.message);
+      },
     });
   }
 }

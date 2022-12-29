@@ -1,18 +1,18 @@
 <!-- CARD-CONTENIDO -->
-<div class="card h-100 bg-celeste">
-  <div class="card-body">
-    <h5 class="card-title">{{ titulo }}</h5>
+<!-- <div class="card h-100 bg-celeste">
+  <div class="card-body" *ngFor="let proyecto of proyectos">
+    <h5 class="card-title">{{ proyecto.titulo }}</h5>
     <p class="card-text">
-      {{ descripcion }}
+      {{ proyecto.descripcion }}
     </p>
-    <div class="d-flex justify-content-around">
-      <i class="me-1 tec html mb-0 {{ icono1 }} fs-2"></i>
-      <i class="me-1 tec css {{ icono2 }} fs-2"></i>
-      <i class="me-1 tec bootstrap {{ icono3 }} fs-2"></i>
-    </div>
-  </div>
+    <div class="d-flex justify-content-around" *ngIf="proyectos"> -->
+<!-- <i class="me-1 tec html mb-0 {{ proyecto.iconTec1 }} fs-2"></i>
+      <i class="me-1 tec css {{ proyecto.iconTec2 }} fs-2"></i>
+      <i class="me-1 tec bootstrap {{ proyecto.iconTec3 }} fs-2"></i> -->
+<!-- </div>
+  </div> -->
 
-  <div class="card-footer">
+<!-- <div class="card-footer">
     <a
       href="https://metodosdepagos.netlify.app/"
       target="_blank"
@@ -20,4 +20,4 @@
       >Visitar sitio</a
     >
   </div>
-</div>
+</div> -->

@@ -4,31 +4,39 @@
   <!-- COLUMNA IZQUIERDA -->
   <article class="col-12 col-lg-9">
     <div class="row">
-      <div class="col-12 col-lg-8 p-2">
-        <!-- app-card-trecafe -->
-        <app-card-trecafe></app-card-trecafe>
-      </div>
+      <div class="col-12 col-lg-6 p-2" *ngFor="let proyecto of proyectos">
+        <div class="card h-100 bg-celeste">
+          <div class="card-body">
+            <h5 class="card-title">{{ proyecto.titulo }}</h5>
+            <p class="card-text">
+              {{ proyecto.descripcion }}
+            </p>
+            <div class="d-flex justify-content-around">
+              <i
+                class="me-1 tec mb-0 {{ proyecto.iconTec1 }} fs-2"
+                [ngStyle]="{ color: proyecto.colorIcon1 }"
+              ></i>
+              <i
+                class="me-1 tec {{ proyecto.iconTec2 }} fs-2"
+                [ngStyle]="{ color: proyecto.colorIcon2 }"
+              ></i>
+              <i
+                class="me-1 tec {{ proyecto.iconTec3 }} fs-2"
+                [ngStyle]="{ color: proyecto.colorIcon3 }"
+              ></i>
+            </div>
+          </div>
 
-      <div class="col-12 col-lg-4 p-2">
-        <!-- app-card-form -->
-        <app-card-card-form></app-card-card-form>
-      </div>
-
-      <div class="col-12 col-lg-4 p-2">
-        <!-- app-card-rep-cel -->
-        <app-card-rep-cel></app-card-rep-cel>
-      </div>
-
-      <div class="col-12 col-lg-8 p-2">
-        <!-- app-form-interac -->
-        <app-card-form-interac></app-card-form-interac>
+          <div class="card-footer">
+            <a
+              [href]="proyecto.link"
+              target="_blank"
+              class="card-link link link"
+              >Visitar sitio</a
+            >
+          </div>
+        </div>
       </div>
     </div>
-  </article>
-
-  <!-- COLUMNA DERECHA -->
-  <article class="col-12 col-lg-3 p-2">
-    <!-- app-editor -->
-    <app-card-editor></app-card-editor>
   </article>
 </section>

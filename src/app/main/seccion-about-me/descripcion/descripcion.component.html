@@ -1,36 +1,6 @@
-<div class="contenedorTexto">
-  <h3 class="titulo-about-me">{{ tituloAcercaDe }}</h3>
+<div class="contenedorTexto" *ngIf="persona">
+  <h3 class="titulo-about-me">Acerca de mi</h3>
   <p>
-    {{ dPart1 }}
-    <a
-      href="http://digitalers.com.ar/cursos.html"
-      target="_blank"
-      class="resaltar"
-    >
-      <!-- "Digit@lers" -->
-      {{ digitalers }} </a
-    >{{ dPart2 }}
-    <a
-      href="https://www.argentina.gob.ar/produccion/transformacion-digital-y-economia-del-conocimiento/argentina-programa"
-      target="_blank"
-      class="resaltar"
-      >{{ ap }}</a
-    >
-    {{ dPart3 }}
-    <a href="https://www.udemy.com/" target="_blank" class="resaltar">{{
-      udemy
-    }}</a>
-    {{ dPart4 }}
-    <a
-      class="resaltar"
-      href="https://polotic.misiones.gob.ar/"
-      target="_blank"
-      >{{ poloTic }}</a
-    >{{ dPart5 }}
-
-    <a href="https://www.unab.edu.ar/" target="_blank" class="resaltar">{{
-      ispc
-    }}</a>
-    {{ dPart6 }}
+    {{ persona.descripcion }}
   </p>
 </div>

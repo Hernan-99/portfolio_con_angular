@@ -1,37 +1,42 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+
+//importacion de la clase persona y del servicio
+import { Persona } from 'src/app/models/persona';
+
+//importacion del servicio
+import { PersonaService } from 'src/app/services/persona.service';
+
 //importamos el servicio
-import { PrincipalService } from 'src/app/services/principal.service';
+// import { PrincipalService } from 'src/app/servicios/principal.service';
 @Component({
   selector: 'app-seccion-hero',
   templateUrl: './seccion-hero.component.html',
   styleUrls: ['./seccion-hero.component.css'],
 })
 export class SeccionHeroComponent implements OnInit {
-  //podria ser una forma si no usamos el json
-  // nombre = 'Hernan';
-  // apellido = 'Sanchez';
-
-  // inicializamos las variable de instancia para almacenar los datos
-  nombre: string = '';
-  apellido: string = '';
-  profesion: string = '';
-  hero: any = '';
+  // inicializamos persona de tipo Persona y editPersona de tipo Persona. Ambos pueden ser del tipo persona o estar indefinidas
+  public persona: Persona | undefined;
+  public editPersona: Persona | undefined;
 
   constructor(
-    //inyectamos el serviccio para acceder a los metodos desde la clase
-    private principalService: PrincipalService
+    //inyectamos el servicio para acceder a los metodos desde la clase
+    private datosPersona: PersonaService
   ) {}
 
   ngOnInit(): void {
-    //almaceno en la variable de instancia (infoPortfolio) los datos obtenidos por el servicio
-    this.principalService.getDatos().subscribe((principal) => {
-      // console.log(principal);
-
-      // INFORMACION A MOSTRAR
-      this.nombre = principal.nombre;
-      this.apellido = principal.apellido;
-      this.profesion = principal.profesion;
-      this.hero = principal.hero;
+    //llamamos al metodo get
+    this.getPersona();
+  }
+  public getPersona(): void {
+    //llamamos al metodo por el servicio
+    this.datosPersona.getPersona().subscribe({
+      next: (rta: Persona) => {
+        this.persona = rta;
+      },
+      error: (err: HttpErrorResponse) => {
+        alert(err.message);
+      },
     });
   }
 }

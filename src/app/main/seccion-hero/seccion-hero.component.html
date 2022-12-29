@@ -1,11 +1,23 @@
 <!-------------------------------------------------------------------------------------------->
 <!-------------------------SECCION HERO - BANNER & NOMBRE - PROFESION------------------------->
 <!-------------------------------------------------------------------------------------------->
-<section class="row" [ngClass]="hero">
+<!-- [ngStyle]="{'background': 'url(' + persona.banner + ')}" -->
+<section
+  class="row banner"
+  *ngIf="persona"
+  [ngStyle]="{
+    'background-image': 'url' + '(' + persona.banner + ')',
+    'background-attachment': 'fixed',
+    ' background-position': 'center center',
+    'background-size': 'cover',
+    'background-repeat': 'no-repeat',
+    height: '80vh'
+  }"
+>
   <div class="contenedorTexto">
     <div class="texto">
-      <h1 class="Nombre">{{ nombre }} {{ apellido }}</h1>
-      <h2 class="Profesion">{{ profesion }}</h2>
+      <h1 class="Nombre">{{ persona.nombre }} {{ persona.apellido }}</h1>
+      <h2 class="Profesion">{{ persona.profesion }}</h2>
     </div>
   </div>
 </section>

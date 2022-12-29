@@ -1,5 +1,7 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { PrincipalService } from 'src/app/services/principal.service';
+import { Persona } from 'src/app/models/persona';
+import { PersonaService } from 'src/app/services/persona.service';
 
 @Component({
   selector: 'app-foto-perfil',
@@ -7,14 +9,23 @@ import { PrincipalService } from 'src/app/services/principal.service';
   styleUrls: ['./foto-perfil.component.css'],
 })
 export class FotoPerfilComponent implements OnInit {
-  // inicializamos la variable
-  fotoPerfil: any = '';
-  constructor(private principalService: PrincipalService) {}
+  public persona: Persona | undefined;
+  public editPersona: Persona | undefined;
+
+  constructor(private personaImg: PersonaService) {}
 
   ngOnInit(): void {
-    this.principalService.getDatos().subscribe((principal) => {
-      // le asignamos a la variable foto, el dato que queremos que se muestre
-      this.fotoPerfil = principal.foto;
+    this.getImgPerfilPersona();
+  }
+
+  public getImgPerfilPersona(): void {
+    this.personaImg.getPersona().subscribe({
+      next: (rta: Persona) => {
+        this.persona = rta;
+      },
+      error: (err: HttpErrorResponse) => {
+        alert(err.message);
+      },
     });
   }
 }

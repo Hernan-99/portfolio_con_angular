@@ -20,10 +20,16 @@
         </i>
       </div>
       <!-- formulario del modal -->
-      <form class="formulario modal-body">
+      <form
+        class="formulario modal-body"
+        id="formLogin"
+        [formGroup]="formLogin"
+        (ngSubmit)="onSubmit()"
+      >
         <div class="mb-3">
           <label for="exampleInputEmail" class="form-label">Email</label>
           <input
+            formControlName="email"
             type="email"
             class="form-control"
             id="exampleInputEmail"
@@ -31,30 +37,77 @@
             placeholder="ejemplo@gmail.com"
             required
           />
+          <div
+            *ngIf="
+              formLogin.controls['email'].invalid &&
+              formLogin.controls['email'].touched
+            "
+          >
+            <!-- <p class="msj">Campo obligatorio</p>
+            <p class="msj">Ingrese un email correcto</p> -->
+            <div *ngIf="formLogin.controls['email'].errors?.['required']">
+              <p class="msj">Campo obligatorio</p>
+            </div>
+            <div *ngIf="formLogin.controls['email'].errors?.['pattern']">
+              <p class="msj">Ingrese un email correcto</p>
+            </div>
+          </div>
         </div>
+
         <div class="mb-3">
           <label for="exampleInputPassword" class="form-label">
             Contraseña
           </label>
           <input
+            formControlName="password"
             type="password"
             class="form-control"
             id="exampleInputPassword"
             placeholder="********"
             required
           />
+          <div
+            *ngIf="
+              formLogin.controls['password'].invalid &&
+              formLogin.controls['password'].touched
+            "
+          >
+            <p
+              class="msj"
+              *ngIf="formLogin.controls['password'].errors?.['required']"
+            >
+              Campo obligatorio
+            </p>
+
+            <p
+              class="msj"
+              *ngIf="formLogin.controls['password'].errors?.['minlength']"
+            >
+              La debe tener al menos 8 caracteres
+            </p>
+          </div>
         </div>
-        <!-- btn para ingresar -->
-        <!-- el href no es necesario (para links externos si) porque se reemplaza con el routerlink -->
-        <!--data-bs-dismiss="modal" es para cerrar el modal al ingresar -->
-        <a
-          type="button"
-          routerLink="/dashboard"
-          data-bs-dismiss="modal"
+
+        <button
           class="border-0 btn btn-ingresar"
+          [ngStyle]="{ marginRight: 5 + 'px' }"
+          type="submit"
+          data-bs-dismiss="modal"
+          form="formLogin"
+          routerLink="/dashboard"
+          [disabled]="!formLogin.valid"
         >
           Ingresar
-        </a>
+        </button>
+        <button
+          class="border-0 btn btn-ingresar"
+          type="submit"
+          data-bs-dismiss="modal"
+          form="formLogin"
+          routerLink="/dashboard"
+        >
+          Registrarse
+        </button>
       </form>
     </div>
   </div>

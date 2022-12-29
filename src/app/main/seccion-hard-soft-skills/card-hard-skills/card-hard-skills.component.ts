@@ -1,7 +1,8 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-
-//importamos el json
-import { PrincipalService } from 'src/app/services/principal.service';
+import { HabilidadesDuras } from 'src/app/models/habilidades-duras';
+//importamos el servicio
+import { HabilidadesDurasService } from 'src/app/services/habilidades-duras.service';
 
 @Component({
   selector: 'app-card-hard-skills',
@@ -9,18 +10,21 @@ import { PrincipalService } from 'src/app/services/principal.service';
   styleUrls: ['./card-hard-skills.component.css'],
 })
 export class CardHardSkillsComponent implements OnInit {
-  lenguajes: any = [];
-  constructor(
-    //inyectamos el serviccio para acceder a los metodos desde la clase
-    private principalService: PrincipalService
-  ) {}
+  public habilidades: HabilidadesDuras[] = [];
+  constructor(private datosHabilidad: HabilidadesDurasService) {}
 
   ngOnInit(): void {
-    this.principalService.getDatos().subscribe((principal) => {
-      //this.skills referencia a la variable inicializada. despues accedemos al json (principal.json) y accedemos
-      //al array skills
+    this.getHabilidades();
+  }
 
-      this.lenguajes = principal.lenguajes;
+  public getHabilidades(): void {
+    this.datosHabilidad.getHabilidadesD().subscribe({
+      next: (rta: HabilidadesDuras[]) => {
+        this.habilidades = rta;
+      },
+      error: (err: HttpErrorResponse) => {
+        alert(err.message);
+      },
     });
   }
 }

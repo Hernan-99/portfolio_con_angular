@@ -1,6 +1,9 @@
 import { DOCUMENT } from '@angular/common';
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, HostListener, Inject, inject, OnInit } from '@angular/core';
-import { PrincipalService } from 'src/app/services/principal.service';
+import { Persona } from 'src/app/models/persona';
+import { PersonaService } from 'src/app/services/persona.service';
+import { PrincipalService } from 'src/app/servicios/principal.service';
 
 @Component({
   selector: 'app-cv',
@@ -8,14 +11,15 @@ import { PrincipalService } from 'src/app/services/principal.service';
   styleUrls: ['./cv.component.css'],
 })
 export class CvComponent implements OnInit {
-  curriculum: string = '';
-  cvDescarga?: boolean;
+  curriculum: Persona | undefined;
+  cvDescarga?: boolean; //necesario para la funcion
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
-    private principalService: PrincipalService
+    private cv: PersonaService
   ) {}
 
+  //funcion de ocultar icono cv
   @HostListener('window:scroll', [])
   onWindowScroll(): void {
     if (
@@ -24,7 +28,7 @@ export class CvComponent implements OnInit {
       document.body.scrollTop > 100
     ) {
       this.cvDescarga = true;
-      console.log(this.cvDescarga);
+      // console.log(this.cvDescarga);
     } else if (
       (this.cvDescarga && window.pageYOffset) ||
       document.documentElement.scrollTop ||
@@ -33,9 +37,19 @@ export class CvComponent implements OnInit {
       this.cvDescarga = false;
     }
   }
+
   ngOnInit(): void {
-    this.principalService.getDatos().subscribe((principal) => {
-      this.curriculum = principal.curriculum;
+    this.getPersona();
+  }
+  public getPersona(): void {
+    //llamamos al metodo por el servicio
+    this.cv.getPersona().subscribe({
+      next: (rta: Persona) => {
+        this.curriculum = rta;
+      },
+      error: (err: HttpErrorResponse) => {
+        alert(err.message);
+      },
     });
   }
 }

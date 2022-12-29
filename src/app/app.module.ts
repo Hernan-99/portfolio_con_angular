@@ -1,10 +1,17 @@
 // MODULOS
 import { ElementRef, HostListener, NgModule, ViewChild } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-//hay que importar esto manualmente
+//hay que importar esto manualmente. sirve para la comunicacion del front con el back
 import { HttpClientModule } from '@angular/common/http';
 
-// COMPONENTES
+/*
+      ========================================================
+      importacion de los modulos para los formularios reactivos
+      ========================================================
+*/
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+// ====================COMPONENTES====================
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header/header.component';
@@ -25,19 +32,6 @@ import { FooterContenedorComponent } from './footer/footer-contenedor/footer-con
 import { AcercaDeComponent } from './main/seccion-about-me/acerca-de/acerca-de.component';
 import { FotoPerfilComponent } from './main/seccion-about-me/foto-perfil/foto-perfil.component';
 import { DescripcionComponent } from './main/seccion-about-me/descripcion/descripcion.component';
-import { CardVentasComponent } from './main/seccion-experiencia-laboral/card-ventas/card-ventas.component';
-import { CardMaquetacionComponent } from './main/seccion-experiencia-laboral/card-maquetacion/card-maquetacion.component';
-import { CardPcComponent } from './main/seccion-experiencia-laboral/card-pc/card-pc.component';
-import { CardSecuComponent } from './main/seccion-educacion-formal/card-secu/card-secu.component';
-import { CardUniComponent } from './main/seccion-educacion-formal/card-uni/card-uni.component';
-import { CardTecComponent } from './main/seccion-educacion-formal/card-tec/card-tec.component';
-import { ColapsableUnlaComponent } from './modals/colapsable-unla/colapsable-unla.component';
-import { ColapsableIspcComponent } from './modals/colapsable-ispc/colapsable-ispc.component';
-import { ColapsableIdoComponent } from './modals/colapsable-ido/colapsable-ido.component';
-import { CardInglesComponent } from './main/seccion-complementaria/card-ingles/card-ingles.component';
-import { CardDigitalersComponent } from './main/seccion-complementaria/card-digitalers/card-digitalers.component';
-import { CardSeProgramarComponent } from './main/seccion-complementaria/card-se-programar/card-se-programar.component';
-import { CardYoProgramoComponent } from './main/seccion-complementaria/card-yo-programo/card-yo-programo.component';
 import { CardSoftSkillsComponent } from './main/seccion-hard-soft-skills/card-soft-skills/card-soft-skills.component';
 import { CardHardSkillsComponent } from './main/seccion-hard-soft-skills/card-hard-skills/card-hard-skills.component';
 import { CardTrecafeComponent } from './main/seccion-proyectos/card-trecafe/card-trecafe.component';
@@ -52,6 +46,9 @@ import { MainDahsboardComponent } from './dashboard/main-dahsboard/main-dahsboar
 import { SharedComponent } from './shared/shared.component';
 //------------------------CURRICULUM-------------------
 import { CvComponent } from './shared/cv/cv.component';
+import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
+import { HeaderEditarComponent } from './editar-perfil/header-editar/header-editar.component';
+import { MainEditarComponent } from './editar-perfil/main-editar/main-editar.component';
 
 @NgModule({
   declarations: [
@@ -74,19 +71,6 @@ import { CvComponent } from './shared/cv/cv.component';
     AcercaDeComponent,
     FotoPerfilComponent,
     DescripcionComponent,
-    CardVentasComponent,
-    CardMaquetacionComponent,
-    CardPcComponent,
-    CardSecuComponent,
-    CardUniComponent,
-    CardTecComponent,
-    ColapsableUnlaComponent,
-    ColapsableIspcComponent,
-    ColapsableIdoComponent,
-    CardInglesComponent,
-    CardDigitalersComponent,
-    CardSeProgramarComponent,
-    CardYoProgramoComponent,
     CardSoftSkillsComponent,
     CardHardSkillsComponent,
     CardTrecafeComponent,
@@ -101,8 +85,19 @@ import { CvComponent } from './shared/cv/cv.component';
     SharedComponent,
     //------------------------CURRICULUM-------------------
     CvComponent,
+    EditarPerfilComponent,
+    HeaderEditarComponent,
+    MainEditarComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+
+    //modulos de formularios reactivos
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

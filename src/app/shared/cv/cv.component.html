@@ -1,10 +1,10 @@
-<div class="d-flex justify-content-end ml-5 mb-5">
+<div class="d-flex justify-content-end ml-5 mb-5" *ngIf="curriculum">
   <a
     rel="noreferrer"
     target="_blank"
     class="cv"
     title="Descargar CV"
-    [href]="curriculum"
+    [href]="curriculum.cv"
     download="Sanchez_Hernan_CV"
   >
     <button
